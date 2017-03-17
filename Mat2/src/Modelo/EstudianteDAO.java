@@ -20,7 +20,7 @@ public class EstudianteDAO {
 
         try {
             conn = conexion.getConexion();
-            String query = "INSERT INTO estudiante (nombre,apellidos,grado,grupo,idestudiante) values (?,?,?,?,?)";
+            String query = "INSERT INTO estudiante (nombre,apellidos,grado,grupo,id_estudiante) values (?,?,?,?,?)";
             ps = conn.prepareStatement(query);
             ps.setString(1, es.getNombre());
             ps.setString(2, es.getApellidos());

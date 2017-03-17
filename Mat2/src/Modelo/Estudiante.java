@@ -1,28 +1,31 @@
-
 package Modelo;
 
 import java.util.ArrayList;
 import javax.swing.JTextField;
 
 /**
- * 
+ *
  * @author Santiago Bedoya Betancur
  * @author Angelica Arroyame Mendoza
  * @author Juan Pablo Romero Laverde
  */
 public class Estudiante {
+
     private String nombre;
     private String apellidos;
     private String grado;
     private String grupo;
     private String idEstudiante;
 
-    public Estudiante(String nombre, String apellidos,String grado, String grupo, String idEstudiante) {
+    public Estudiante(String nombre, String apellidos, String grado, String grupo, String idEstudiante) {
         this.nombre = nombre;
         this.apellidos = apellidos;
         this.grado = grado;
         this.grupo = grupo;
         this.idEstudiante = idEstudiante;
+    }
+
+    public Estudiante() {
     }
 
     public String getApellidos() {
@@ -32,7 +35,7 @@ public class Estudiante {
     public void setApellidos(String apellidos) {
         this.apellidos = apellidos;
     }
-    
+
     public String getNombre() {
         return nombre;
     }
@@ -65,6 +68,4 @@ public class Estudiante {
         this.idEstudiante = idEstudiante;
     }
 
-
-   
 }
