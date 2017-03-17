@@ -1,5 +1,9 @@
 
 package Modelo;
+
+import java.util.ArrayList;
+import javax.swing.JTextField;
+
 /**
  * 
  * @author Santiago Bedoya Betancur
@@ -61,7 +65,6 @@ public class Estudiante {
         this.idEstudiante = idEstudiante;
     }
 
-    
 
    
 }
