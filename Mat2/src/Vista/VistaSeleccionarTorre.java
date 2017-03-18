@@ -21,7 +21,7 @@ public class VistaSeleccionarTorre extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btnDosCifras = new javax.swing.JButton();
-        atras = new javax.swing.JButton();
+        atrasBtn = new javax.swing.JButton();
         btnTresCifras = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
 
@@ -50,17 +50,17 @@ public class VistaSeleccionarTorre extends javax.swing.JFrame {
         });
         getContentPane().add(btnDosCifras, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 200, 240, 70));
 
-        atras.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/back.png"))); // NOI18N
-        atras.setBorderPainted(false);
-        atras.setFocusPainted(false);
-        atras.setOpaque(true);
-        atras.setRolloverEnabled(false);
-        atras.addActionListener(new java.awt.event.ActionListener() {
+        atrasBtn.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/BtnAtras.png"))); // NOI18N
+        atrasBtn.setBorderPainted(false);
+        atrasBtn.setFocusPainted(false);
+        atrasBtn.setOpaque(true);
+        atrasBtn.setRolloverEnabled(false);
+        atrasBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atrasActionPerformed(evt);
+                atrasBtnActionPerformed(evt);
             }
         });
-        getContentPane().add(atras, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 70));
+        getContentPane().add(atrasBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 310, 80, 70));
 
         btnTresCifras.setBackground(new java.awt.Color(48, 205, 182));
         btnTresCifras.setFont(new java.awt.Font("DejaVu Sans", 1, 18)); // NOI18N
@@ -78,7 +78,7 @@ public class VistaSeleccionarTorre extends javax.swing.JFrame {
         });
         getContentPane().add(btnTresCifras, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 240, 70));
 
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondoJ.jpg"))); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/FondoGeneral.jpg"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 700, 400));
 
         pack();
@@ -92,11 +92,11 @@ public class VistaSeleccionarTorre extends javax.swing.JFrame {
         NuevaVistaTorre(3);
     }//GEN-LAST:event_btnTresCifrasActionPerformed
 
-    private void atrasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasActionPerformed
+    private void atrasBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBtnActionPerformed
         Juegos j = new Juegos();
         j.setVisible(true);
         dispose();
-    }//GEN-LAST:event_atrasActionPerformed
+    }//GEN-LAST:event_atrasBtnActionPerformed
 
     public void NuevaVistaTorre(int CantidadDeCifras) {
         VistaTorre NuevaTorre = new VistaTorre(CantidadDeCifras);
@@ -107,7 +107,7 @@ public class VistaSeleccionarTorre extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton atras;
+    private javax.swing.JButton atrasBtn;
     private javax.swing.JButton btnDosCifras;
     private javax.swing.JButton btnTresCifras;
     private javax.swing.JLabel jLabel1;

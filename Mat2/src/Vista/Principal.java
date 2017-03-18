@@ -18,7 +18,7 @@ import javax.swing.JTextField;
  */
 public class Principal extends javax.swing.JFrame {
 
-    private ControladorPrincipal ctr;
+    private ControladorPrincipal ctrl;
     protected int k=0;
     
     public Principal() {
@@ -29,7 +29,7 @@ public class Principal extends javax.swing.JFrame {
         estu1.setVisible(false);
         estu1.setOpaque(false);
         loginE.setVisible(false);
-        ctr = new ControladorPrincipal();
+        ctrl = new ControladorPrincipal();
         
     }
 
@@ -65,8 +65,8 @@ public class Principal extends javax.swing.JFrame {
         jLabel6 = new javax.swing.JLabel();
         usuarioP = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        passP = new javax.swing.JTextField();
         sigP = new javax.swing.JButton();
+        passP = new javax.swing.JPasswordField();
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -74,7 +74,7 @@ public class Principal extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(730, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/TituloP.png"))); // NOI18N
+        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/ModuloMatT.png"))); // NOI18N
         getContentPane().add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 10, 370, 100));
 
         estudiante.setBackground(new java.awt.Color(247, 204, 49));
@@ -98,6 +98,7 @@ public class Principal extends javax.swing.JFrame {
         profe.setText("Profesor (Click Aquí!).");
         profe.setBorderPainted(false);
         profe.setFocusPainted(false);
+        profe.setOpaque(true);
         profe.setPreferredSize(new java.awt.Dimension(259, 79));
         profe.setRolloverEnabled(false);
         profe.addActionListener(new java.awt.event.ActionListener() {
@@ -113,7 +114,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel8.setText("Estudiante:");
 
         jLabel9.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
-        jLabel9.setText("Contraseña:");
+        jLabel9.setText("Identificación:");
 
         sigE1.setText("Siguiente");
         sigE1.addActionListener(new java.awt.event.ActionListener() {
@@ -129,13 +130,13 @@ public class Principal extends javax.swing.JFrame {
             .addGroup(loginELayout.createSequentialGroup()
                 .addGroup(loginELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(loginELayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(loginELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addContainerGap()
+                        .addGroup(loginELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(loginELayout.createSequentialGroup()
-                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(passE, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(sigE1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(jLabel9)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(passE, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
+                            .addComponent(sigE1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(loginELayout.createSequentialGroup()
                         .addGap(5, 5, 5)
                         .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -161,7 +162,7 @@ public class Principal extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        getContentPane().add(loginE, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 250, -1));
+        getContentPane().add(loginE, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 310, -1));
 
         inicio.setBackground(new java.awt.Color(247, 204, 49));
         inicio.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
@@ -317,19 +318,20 @@ public class Principal extends javax.swing.JFrame {
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panel1Layout.createSequentialGroup()
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                        .addGroup(panel1Layout.createSequentialGroup()
-                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(usuarioP))
-                        .addGroup(panel1Layout.createSequentialGroup()
-                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(passP, javax.swing.GroupLayout.PREFERRED_SIZE, 136, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(sigP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(97, 97, 97)
+                        .addComponent(passP))
+                    .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(usuarioP, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(sigP, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         panel1Layout.setVerticalGroup(
@@ -339,22 +341,21 @@ public class Principal extends javax.swing.JFrame {
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(10, 10, 10)
-                        .addComponent(jLabel6))
-                    .addComponent(usuarioP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(10, 10, 10)
+                        .addComponent(jLabel6)
+                        .addGap(13, 13, 13)
                         .addComponent(jLabel7))
-                    .addComponent(passP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addComponent(usuarioP, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(passP, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
                 .addComponent(sigP)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         getContentPane().add(panel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 210, 250, 120));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondoJ.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/FondoVenPrincipal.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 460));
 
         pack();
@@ -362,7 +363,7 @@ public class Principal extends javax.swing.JFrame {
 
     private void sigEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigEActionPerformed
         
-        ctr.guardarE(nombre, apellidos, grado, grupo, id);
+        ctrl.guardarE(nombre, apellidos, grado, grupo, id);
         Juegos j = new Juegos();
         j.setVisible(true);
         dispose();
@@ -383,7 +384,11 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_estudianteActionPerformed
 
     private void sigPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigPActionPerformed
-        // TODO add your handling code here:
+       if(usuarioP.getText().equals("profesora") && passP.getText().equals("123")){
+           Profesor profeVentana = new Profesor();
+           profeVentana.setVisible(true);
+           dispose();
+       }       
     }//GEN-LAST:event_sigPActionPerformed
 
     private void regisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regisActionPerformed
@@ -395,7 +400,7 @@ public class Principal extends javax.swing.JFrame {
     private void sigE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigE1ActionPerformed
         //boolean bol = ctr.validarE(usuarioE.getText(), passE.getText());
         boolean bol;
-        bol = ctr.validarE(usuarioE.getText());
+        bol = ctrl.validarE(usuarioE.getText(), passE.getText());
         if(!bol){
             JOptionPane.showMessageDialog(null, "Ingresa bien los datos.");
         }else{
@@ -418,153 +423,6 @@ public class Principal extends javax.swing.JFrame {
         loginE.setVisible(false);
     }
     
-    public JTextField getApellidos() {
-        return apellidos;
-    }
-
-    public void setApellidos(JTextField apellidos) {
-        this.apellidos = apellidos;
-    }
-
-    public JTextField getGrado() {
-        return grado;
-    }
-
-    public void setGrado(JTextField grado) {
-        this.grado = grado;
-    }
-
-    public JTextField getGrupo() {
-        return grupo;
-    }
-
-    public void setGrupo(JTextField grupo) {
-        this.grupo = grupo;
-    }
-
-    public JTextField getId() {
-        return id;
-    }
-
-    public void setId(JTextField id) {
-        this.id = id;
-    }
-
-    public JButton getjButton1() {
-        return estudiante;
-    }
-
-    public void setjButton1(JButton jButton1) {
-        this.estudiante = jButton1;
-    }
-
-    public JButton getjButton2() {
-        return profe;
-    }
-
-    public void setjButton2(JButton jButton2) {
-        this.profe = jButton2;
-    }
-
-    public JLabel getjLabel1() {
-        return jLabel1;
-    }
-
-    public void setjLabel1(JLabel jLabel1) {
-        this.jLabel1 = jLabel1;
-    }
-
-    public JLabel getjLabel2() {
-        return jLabel2;
-    }
-
-    public void setjLabel2(JLabel jLabel2) {
-        this.jLabel2 = jLabel2;
-    }
-
-    public JLabel getjLabel3() {
-        return jLabel3;
-    }
-
-    public void setjLabel3(JLabel jLabel3) {
-        this.jLabel3 = jLabel3;
-    }
-
-    public JLabel getjLabel4() {
-        return jLabel4;
-    }
-
-    public void setjLabel4(JLabel jLabel4) {
-        this.jLabel4 = jLabel4;
-    }
-
-    public JLabel getjLabel5() {
-        return jLabel5;
-    }
-
-    public void setjLabel5(JLabel jLabel5) {
-        this.jLabel5 = jLabel5;
-    }
-
-    public JLabel getjLabel6() {
-        return jLabel6;
-    }
-
-    public void setjLabel6(JLabel jLabel6) {
-        this.jLabel6 = jLabel6;
-    }
-
-    public JLabel getjLabel7() {
-        return jLabel7;
-    }
-
-    public void setjLabel7(JLabel jLabel7) {
-        this.jLabel7 = jLabel7;
-    }
-
-    public JPanel getjPanel1() {
-        return panel2;
-    }
-
-    public void setjPanel1(JPanel jPanel1) {
-        this.panel2 = jPanel1;
-    }
-
-    public JPanel getjPanel2() {
-        return panel1;
-    }
-
-    public void setjPanel2(JPanel jPanel2) {
-        this.panel1 = jPanel2;
-    }
-
-    public JTextField getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(JTextField nombre) {
-        this.nombre = nombre;
-    }
-
-    public JTextField getPass() {
-        return passP;
-    }
-
-    public void setPass(JTextField pass) {
-        this.passP = pass;
-    }
-
-    public JTextField getUsuario() {
-        return usuarioP;
-    }
-
-    public void setUsuario(JTextField usuario) {
-        this.usuarioP = usuario;
-    }
-
-    public int getK() {
-        return k;
-    }
     
 
     
@@ -592,7 +450,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JPanel panel1;
     private javax.swing.JPanel panel2;
     private javax.swing.JTextField passE;
-    private javax.swing.JTextField passP;
+    private javax.swing.JPasswordField passP;
     private javax.swing.JButton profe;
     private javax.swing.JButton regis;
     private javax.swing.JButton sigE;

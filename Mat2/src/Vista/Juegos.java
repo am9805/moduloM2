@@ -36,7 +36,7 @@ public class Juegos extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        Titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Titulo.png"))); // NOI18N
+        Titulo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/AprendamosConMatT.png"))); // NOI18N
         getContentPane().add(Titulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 40, 550, 130));
 
         jButton2.setBackground(new java.awt.Color(48, 205, 182));
@@ -72,7 +72,7 @@ public class Juegos extends javax.swing.JFrame {
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, 240, 70));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/fondoJ.jpg"))); // NOI18N
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/FondoVenPrincipal.jpg"))); // NOI18N
         getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 730, 460));
 
         pack();

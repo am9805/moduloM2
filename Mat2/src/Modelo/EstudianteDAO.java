@@ -42,16 +42,22 @@ public class EstudianteDAO {
         return true;
     }
     
-     public boolean validarUsuario(String nombre) {      
+     public boolean validarUsuario(String nombre, String id_estudiante) {      
         boolean r = false;
-        String q = "SELECT * FROM estudiante" + " WHERE nombre='"+nombre+"'";
+        String q = "SELECT nombre,id_estudiante FROM estudiante WHERE nombre='"+nombre+"'AND id_estudiante='" + id_estudiante + "'";
         try {
-            rs = sentencia.executeQuery(q);
+            conn = conexion.getConexion();
+            ps = conn.prepareStatement(q);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                System.out.println(rs.getObject(1));
+            }
             System.out.println("Correcto");
+            
         } catch (Exception e) {
             System.out.println(" No Correcto");
         }
-        
+        r= asignar();
         return r;
                 
     

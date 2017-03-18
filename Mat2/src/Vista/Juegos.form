@@ -28,7 +28,7 @@
     <Component class="javax.swing.JLabel" name="Titulo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Recursos/Titulo.png"/>
+          <Image iconType="3" name="/Recursos/AprendamosConMatT.png"/>
         </Property>
       </Properties>
       <Constraints>
@@ -101,7 +101,7 @@
     <Component class="javax.swing.JLabel" name="fondo">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-          <Image iconType="3" name="/Recursos/fondoJ.jpg"/>
+          <Image iconType="3" name="/Recursos/FondoVenPrincipal.jpg"/>
         </Property>
       </Properties>
       <Constraints>
