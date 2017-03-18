@@ -8,6 +8,7 @@ package Vista;
 import Controlador.ControladorPrincipal;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -28,6 +29,7 @@ public class Principal extends javax.swing.JFrame {
         estu1.setVisible(false);
         estu1.setOpaque(false);
         loginE.setVisible(false);
+        ctr = new ControladorPrincipal();
         
     }
 
@@ -70,7 +72,6 @@ public class Principal extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(730, 460));
         setMinimumSize(new java.awt.Dimension(730, 460));
-        setPreferredSize(new java.awt.Dimension(730, 460));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/TituloP.png"))); // NOI18N
@@ -360,7 +361,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sigEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigEActionPerformed
-        ctr = new ControladorPrincipal();
+        
         ctr.guardarE(nombre, apellidos, grado, grupo, id);
         Juegos j = new Juegos();
         j.setVisible(true);
@@ -392,7 +393,16 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_regisActionPerformed
 
     private void sigE1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigE1ActionPerformed
-        // TODO add your handling code here:
+        //boolean bol = ctr.validarE(usuarioE.getText(), passE.getText());
+        boolean bol;
+        bol = ctr.validarE(usuarioE.getText());
+        if(!bol){
+            JOptionPane.showMessageDialog(null, "Ingresa bien los datos.");
+        }else{
+        Juegos j = new Juegos();
+        j.setVisible(true);
+        dispose();
+        }
     }//GEN-LAST:event_sigE1ActionPerformed
 
     private void inicioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inicioActionPerformed

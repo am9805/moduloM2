@@ -5,16 +5,17 @@ package Modelo;
  * @author Angelica Arroyame Mendoza
  * @author Juan Pablo Romero Laverde
  */
-import Modelo.ConexionBD;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 
 public class EstudianteDAO {
     PreparedStatement ps = null;
     ResultSet rs = null;
     Connection conn = null;
     ConexionBD conexion = null;
+    static Statement sentencia;
 
     public boolean agregarEstudiante(Estudiante es) {
 
@@ -39,5 +40,34 @@ public class EstudianteDAO {
                 /* ignored */ }
         }
         return true;
+    }
+    
+     public boolean validarUsuario(String nombre) {      
+        boolean r = false;
+        String q = "SELECT * FROM estudiante" + " WHERE nombre='"+nombre+"'";
+        try {
+            rs = sentencia.executeQuery(q);
+            System.out.println("Correcto");
+        } catch (Exception e) {
+            System.out.println(" No Correcto");
+        }
+        
+        return r;
+                
+    
+    }
+     
+      public  boolean asignar(){
+      boolean r = false;
+        try {
+            if(rs.last()){
+                
+                r=true;
+            }
+        } catch (Exception e) {
+        }
+      
+      return r;
+                
     }
 }

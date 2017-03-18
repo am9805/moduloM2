@@ -1,3 +1,4 @@
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -29,6 +30,13 @@ public class ControladorPrincipal {
         } else {
             JOptionPane.showMessageDialog(null, "Por favor llene todos los campos");
         }
+    }
+
+    public boolean validarE(String nombre) {
+        boolean a;
+        edao = new EstudianteDAO();
+        a = edao.validarUsuario(nombre);        
+        return a;
     }
 
 }
