@@ -6,12 +6,6 @@
 package Controlador;
 
 import Vista.Principal;
-import javax.swing.JFrame;
-import javax.swing.UIManager;
-import javax.swing.UnsupportedLookAndFeelException;
-import org.jvnet.substance.SubstanceLookAndFeel;
-import org.jvnet.substance.skin.NebulaSkin;
-import org.jvnet.substance.skin.SubstanceNebulaLookAndFeel;
 
 /**
  *
@@ -19,16 +13,7 @@ import org.jvnet.substance.skin.SubstanceNebulaLookAndFeel;
  */
 public class ControladorStart {
     
-    public static void main(String args[]) {
-//        
-//        JFrame.setDefaultLookAndFeelDecorated(true);
-//		SubstanceLookAndFeel.setSkin(new NebulaSkin());
-//		SubstanceLookAndFeel.setSkin("org.pushingpixels.substance.api.skin.SubstanceNebulaLookAndFeel");
-//		try {			
-//			UIManager.setLookAndFeel(new SubstanceNebulaLookAndFeel());
-//		} catch (UnsupportedLookAndFeelException e) {
-//				e.printStackTrace();
-//		}	
+    public static void main(String args[]) {	
         Principal pi = new Principal();
         pi.setVisible(true);
     }
