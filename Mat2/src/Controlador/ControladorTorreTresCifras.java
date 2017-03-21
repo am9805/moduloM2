@@ -16,7 +16,20 @@ public class ControladorTorreTresCifras extends ControladorTorre {
         boolean unidadesCorrectas = txtFUnidades.getText().equals(numeroCorrecto.substring(2, 3));
         boolean decenasCorrectas = txtFDecenas.getText().equals(numeroCorrecto.substring(1, 2));
         boolean centenasCorrectas = txtFCentenas.getText().equals(numeroCorrecto.substring(0, 1));
+        errores(unidadesCorrectas, decenasCorrectas, centenasCorrectas);
         return (unidadesCorrectas && decenasCorrectas && centenasCorrectas);
+    }
+
+    public void errores(boolean unidadesCorrectas, boolean decenasCorrectas, boolean centenasCorrectas) {
+        if (!unidadesCorrectas) {
+            EstadisticaTorre.setErroresUnidades(EstadisticaTorre.getErroresUnidades() + 1);
+        }
+        if (!decenasCorrectas) {
+            EstadisticaTorre.setErroresDecenas(EstadisticaTorre.getErroresDecenas() + 1);
+        }
+        if (!centenasCorrectas) {
+            EstadisticaTorre.setErroresCentenas(EstadisticaTorre.getErroresCentenas() + 1);
+        }
     }
 
     @Override

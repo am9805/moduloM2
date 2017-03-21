@@ -10,15 +10,22 @@ import javax.swing.JTextField;
  * @author Juan Pablo Romero Laverde
  */
 public class ControladorTorreDosCifras extends ControladorTorre {
-    
+
     @Override
     public boolean validarNumero(JTextField txtFUnidades, JTextField txtFDecenas, JTextField txtFCentenas, String numeroCorrecto) {
         boolean unidadesCorrectas = txtFUnidades.getText().equals(numeroCorrecto.substring(1, 2));
         boolean decenasCorrectas = txtFDecenas.getText().equals(numeroCorrecto.substring(0, 1));
-        
-        if(!unidadesCorrectas){
-        }
+        errores(unidadesCorrectas, decenasCorrectas);
         return (unidadesCorrectas && decenasCorrectas);
+    }
+
+    public void errores(boolean unidadesCorrectas, boolean decenasCorrectas) {
+        if (!unidadesCorrectas) {
+            EstadisticaTorre.setErroresUnidades(EstadisticaTorre.getErroresUnidades() + 1);
+        }
+        if (!decenasCorrectas) {
+            EstadisticaTorre.setErroresDecenas(EstadisticaTorre.getErroresDecenas() + 1);
+        }
     }
 
     @Override

@@ -1,9 +1,11 @@
 package Controlador;
 
-import Modelo.Estadisticas;
+import Modelo.EstadisticaTorre;
+import Modelo.Estudiante;
 import Modelo.ModeloTorre;
-import static java.util.concurrent.ThreadLocalRandom.current;
+import java.util.Calendar;
 import javax.swing.JTextField;
+import static java.util.concurrent.ThreadLocalRandom.current;
 
 /**
  *
@@ -12,9 +14,19 @@ import javax.swing.JTextField;
  * @author Juan Pablo Romero Laverde
  */
 public abstract class ControladorTorre {
-
+    Calendar c = Calendar.getInstance();
+    String dia  = Integer.toString(c.get(Calendar.DATE));
+    String mes  = Integer.toString(c.get(Calendar.MONTH));
+    String annio  = Integer.toString(c.get(Calendar.YEAR));
+    String Fecha = dia+"/"+mes+"/"+annio;
     ModeloTorre Torre = new ModeloTorre();
+    Estudiante Estudiante = new Estudiante();
+    EstadisticaTorre EstadisticaTorre;
 
+    public ControladorTorre() {
+        EstadisticaTorre = new EstadisticaTorre(Estudiante.getIdEstudiante(),Fecha);
+    }  
+    
     public abstract boolean validarNumero(JTextField txtFUnidades, JTextField txtFDecenas, JTextField txtFCentenas, String numeroCorrecto);
 
     public abstract String cifrasALetras(int a);

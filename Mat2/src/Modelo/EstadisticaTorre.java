@@ -1,7 +1,5 @@
 package Modelo;
 
-import java.util.Date;
-
 /**
  *
  * @author Santiago Bedoya Betancur
@@ -16,9 +14,9 @@ public class EstadisticaTorre {
     int erroresDecenas;
     int erroresCentenas;
     int nivelAlcanzado;
-    Date fecha;
+    String fecha;
 
-    public EstadisticaTorre(String idEstudiante, Date fecha) {
+    public EstadisticaTorre(String idEstudiante, String fecha) {
         this.idEstudiante = idEstudiante;
         erroresUnidades = 0;
         erroresDecenas = 0;
@@ -75,11 +73,11 @@ public class EstadisticaTorre {
         this.nivelAlcanzado = nivelAlcanzado;
     }
 
-    public Date getFecha() {
+    public String getFecha() {
         return fecha;
     }
 
-    public void setFecha(Date fecha) {
+    public void setFecha(String fecha) {
         this.fecha = fecha;
     }
 
