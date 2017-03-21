@@ -1,0 +1,4 @@
+CREATE TABLE estadisticaTorre (nombreJuego VARCHAR(20), id_estudiante VARCHAR(40), erroresUnidades INT, erroresDecenas INT, erroresCentenas INT, novelAlcanzado INT, PRIMARY KEY (id_estudiante));
+CREATE TABLE estudiante (nombre VARCHAR(20), apellidos VARCHAR(40), grado VARCHAR(5), grupo VARCHAR(5), id_estudiante VARCHAR(40), PRIMARY KEY (id_estudiante));
+ALTER TABLE estadisticaTorre ADD FOREIGN KEY(id_estudiante)
+REFERENCES estudiante(id_estudiante) ON DELETE CASCADE;
