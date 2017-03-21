@@ -14,19 +14,20 @@ import static java.util.concurrent.ThreadLocalRandom.current;
  * @author Juan Pablo Romero Laverde
  */
 public abstract class ControladorTorre {
+
     Calendar c = Calendar.getInstance();
-    String dia  = Integer.toString(c.get(Calendar.DATE));
-    String mes  = Integer.toString(c.get(Calendar.MONTH));
-    String annio  = Integer.toString(c.get(Calendar.YEAR));
-    String Fecha = dia+"/"+mes+"/"+annio;
+    String dia = Integer.toString(c.get(Calendar.DATE));
+    String mes = Integer.toString(c.get(Calendar.MONTH));
+    String annio = Integer.toString(c.get(Calendar.YEAR));
+    String Fecha = dia + "/" + mes + "/" + annio;
     ModeloTorre Torre = new ModeloTorre();
     Estudiante Estudiante = new Estudiante();
     EstadisticaTorre EstadisticaTorre;
 
     public ControladorTorre() {
-        EstadisticaTorre = new EstadisticaTorre(Estudiante.getIdEstudiante(),Fecha);
-    }  
-    
+        EstadisticaTorre = new EstadisticaTorre(Estudiante.getIdEstudiante(), Fecha);
+    }
+
     public abstract boolean validarNumero(JTextField txtFUnidades, JTextField txtFDecenas, JTextField txtFCentenas, String numeroCorrecto);
 
     public abstract String cifrasALetras(int a);
