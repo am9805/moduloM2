@@ -20,7 +20,7 @@ public class Estudiante {
         this.grado = grado;
         this.grupo = grupo;
         this.idEstudiante = idEstudiante;
-    }
+        }
 
     public Estudiante() {
     }

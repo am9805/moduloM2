@@ -20,7 +20,7 @@ public class EstadisticaTorreDAO {
 
         try {
             conn = conexion.getConexion();
-            String query = "INSERT INTO estadisticaTorre (nombreJuego,id_estudiante,erroresUnidades,erroresDecenas,erroresCentenas, novelAlcanzado) values (?,?,?,?,?,?)";
+            String query = "INSERT INTO estadisticaTorre (nombreJuego,id_estudiante,erroresUnidades,erroresDecenas,erroresCentenas, novelAlcanzado, fecha) values (?,?,?,?,?,?,?)";
             ps = conn.prepareStatement(query);
             ps.setString(1, es.getNombreJuego());
             ps.setString(2, es.getIdEstudiante());
@@ -28,6 +28,7 @@ public class EstadisticaTorreDAO {
             ps.setInt(4, es.getErroresDecenas());
             ps.setInt(5, es.getErroresCentenas());
             ps.setInt(6, es.getNivelAlcanzado());
+            ps.setString(7, es.getFecha());
             ps.executeUpdate();
         } catch (Exception e) {
 

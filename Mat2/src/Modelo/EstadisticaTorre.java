@@ -8,15 +8,16 @@ package Modelo;
  */
 public class EstadisticaTorre {
 
-    String nombreJuego;
-    String idEstudiante;
-    int erroresUnidades;
-    int erroresDecenas;
-    int erroresCentenas;
-    int nivelAlcanzado;
-    String fecha;
+    private String nombreJuego;
+    private String idEstudiante;
+    private int erroresUnidades;
+    private int erroresDecenas;
+    private int erroresCentenas;
+    private int nivelAlcanzado;
+    private String fecha;
 
     public EstadisticaTorre(String idEstudiante, String fecha) {
+        nombreJuego = "La Torre";
         this.idEstudiante = idEstudiante;
         erroresUnidades = 0;
         erroresDecenas = 0;
@@ -32,7 +33,7 @@ public class EstadisticaTorre {
     public void setNombreJuego(String nombreJuego) {
         this.nombreJuego = nombreJuego;
     }
-    
+
     public String getIdEstudiante() {
         return idEstudiante;
     }

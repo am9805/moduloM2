@@ -1,6 +1,7 @@
 package Controlador;
 
 import Modelo.EstadisticaTorre;
+import Modelo.EstadisticaTorreDAO;
 import Modelo.Estudiante;
 import Modelo.ModeloTorre;
 import java.util.Calendar;
@@ -15,18 +16,9 @@ import static java.util.concurrent.ThreadLocalRandom.current;
  */
 public abstract class ControladorTorre {
 
-    Calendar c = Calendar.getInstance();
-    String dia = Integer.toString(c.get(Calendar.DATE));
-    String mes = Integer.toString(c.get(Calendar.MONTH));
-    String annio = Integer.toString(c.get(Calendar.YEAR));
-    String Fecha = dia + "/" + mes + "/" + annio;
-    ModeloTorre Torre = new ModeloTorre();
-    Estudiante Estudiante = new Estudiante();
-    EstadisticaTorre EstadisticaTorre;
-
-    public ControladorTorre() {
-        EstadisticaTorre = new EstadisticaTorre(Estudiante.getIdEstudiante(), Fecha);
-    }
+    protected ModeloTorre Torre = new ModeloTorre();
+    protected Estudiante Estudiante = new Estudiante();
+    protected EstadisticaTorre EstadisticaTorre;
 
     public abstract boolean validarNumero(JTextField txtFUnidades, JTextField txtFDecenas, JTextField txtFCentenas, String numeroCorrecto);
 
@@ -38,14 +30,35 @@ public abstract class ControladorTorre {
         return Torre;
     }
 
-    public String mensaje(int numeroMensaje) {
-        String[] mensajes = new String[4];
-        mensajes[0] = "Te equivocaste. ¡Puedes lograrlo!";
-        mensajes[1] = "Muy Bien. ¡Continúa!";
-        mensajes[2] = "Aún no has terminado, la proxima vez lo lograras.";
-        mensajes[3] = "Ha ocurrido un pequeño temblor.\nOrganiza los números por favor.";
-        return mensajes[numeroMensaje];
+    public ControladorTorre() {
+        Calendar c = Calendar.getInstance();
+        String dia = Integer.toString(c.get(Calendar.DATE));
+        String mes = Integer.toString(c.get(Calendar.MONTH));
+        String annio = Integer.toString(c.get(Calendar.YEAR));
+        String Fecha = dia + "/" + mes + "/" + annio;
+        EstadisticaTorre = new EstadisticaTorre(Estudiante.getIdEstudiante(), Fecha);
     }
+
+    public void errores(boolean unidadesCorrectas, boolean decenasCorrectas, boolean centenasCorrectas) {
+        if (!unidadesCorrectas) {
+            EstadisticaTorre.setErroresUnidades(EstadisticaTorre.getErroresUnidades() + 1);
+        }
+        if (!decenasCorrectas) {
+            EstadisticaTorre.setErroresDecenas(EstadisticaTorre.getErroresDecenas() + 1);
+        }
+        if (!centenasCorrectas) {
+            EstadisticaTorre.setErroresCentenas(EstadisticaTorre.getErroresCentenas() + 1);
+        }
+    }
+
+//    public String mensaje(int numeroMensaje) {
+//        String[] mensajes = new String[4];
+//        mensajes[0] = "Te equivocaste. ¡Puedes lograrlo!";
+//        mensajes[1] = "Muy Bien. ¡Continúa!";
+//        mensajes[2] = "Aún no has terminado, la proxima vez lo lograras.";
+//        mensajes[3] = "Ha ocurrido un pequeño temblor.\nOrganiza los números por favor.";
+//        return mensajes[numeroMensaje];
+//    }
 
     public String[] centenas() {
         String[] centenas = {"ciento", "cien", "doscientos", "trescientos", "cuatrocientos",
@@ -91,4 +104,10 @@ public abstract class ControladorTorre {
         }
         return decision;
     }
+    
+    public void llenarTabla(){
+        EstadisticaTorreDAO a = new EstadisticaTorreDAO();
+        a.AgregarEstadisticaT(EstadisticaTorre);
+    }
+    
 }

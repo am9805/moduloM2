@@ -20,18 +20,6 @@ public class ControladorTorreTresCifras extends ControladorTorre {
         return (unidadesCorrectas && decenasCorrectas && centenasCorrectas);
     }
 
-    public void errores(boolean unidadesCorrectas, boolean decenasCorrectas, boolean centenasCorrectas) {
-        if (!unidadesCorrectas) {
-            EstadisticaTorre.setErroresUnidades(EstadisticaTorre.getErroresUnidades() + 1);
-        }
-        if (!decenasCorrectas) {
-            EstadisticaTorre.setErroresDecenas(EstadisticaTorre.getErroresDecenas() + 1);
-        }
-        if (!centenasCorrectas) {
-            EstadisticaTorre.setErroresCentenas(EstadisticaTorre.getErroresCentenas() + 1);
-        }
-    }
-
     @Override
     public String cifrasALetras(int a) {
         int unidades = a % 10;
