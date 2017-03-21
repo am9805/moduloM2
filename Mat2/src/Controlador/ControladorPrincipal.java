@@ -35,7 +35,8 @@ public class ControladorPrincipal {
     public boolean validarE(String nombre, String id_estudiante) {
         boolean a;
         edao = new EstudianteDAO();
-        a = edao.validarUsuario(nombre, id_estudiante);        
+        a = edao.validarUsuario(nombre, id_estudiante); 
+        
         return a;
     }
 

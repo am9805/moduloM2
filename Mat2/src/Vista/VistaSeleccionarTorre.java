@@ -26,9 +26,7 @@ public class VistaSeleccionarTorre extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(705, 430));
         setMinimumSize(new java.awt.Dimension(705, 430));
-        setPreferredSize(new java.awt.Dimension(705, 430));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/LaTorreT.png"))); // NOI18N

@@ -2,7 +2,8 @@
 package Vista;
 
 public class Profesor extends javax.swing.JFrame {
-
+    
+   
     public Profesor() {
         initComponents();
         setLocationRelativeTo(null);

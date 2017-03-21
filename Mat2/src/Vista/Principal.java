@@ -6,6 +6,7 @@
 package Vista;
 
 import Controlador.ControladorPrincipal;
+import Modelo.SingletonEstudianteActivo;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -19,8 +20,8 @@ import javax.swing.JTextField;
 public class Principal extends javax.swing.JFrame {
 
     private ControladorPrincipal ctrl;
-    protected int k=0;
-    
+    protected int k = 0;
+
     public Principal() {
         initComponents();
         setLocationRelativeTo(null);
@@ -30,7 +31,7 @@ public class Principal extends javax.swing.JFrame {
         estu1.setOpaque(false);
         loginE.setVisible(false);
         ctrl = new ControladorPrincipal();
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -362,7 +363,7 @@ public class Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void sigEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigEActionPerformed
-        
+
         ctrl.guardarE(nombre, apellidos, grado, grupo, id);
         Juegos j = new Juegos();
         j.setVisible(true);
@@ -370,25 +371,25 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_sigEActionPerformed
 
     private void profeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profeActionPerformed
-        panel1.setVisible(true);        
-        panel2.setVisible(false);        
-        k=1;
+        panel1.setVisible(true);
+        panel2.setVisible(false);
+        k = 1;
     }//GEN-LAST:event_profeActionPerformed
 
     private void estudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_estudianteActionPerformed
-        
+
         esconder();
         estu1.setVisible(true);
         panel1.setVisible(false);
-        k=2;
+        k = 2;
     }//GEN-LAST:event_estudianteActionPerformed
 
     private void sigPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigPActionPerformed
-       if(usuarioP.getText().equals("profesora") && passP.getText().equals("123")){
-           Profesor profeVentana = new Profesor();
-           profeVentana.setVisible(true);
-           dispose();
-       }       
+        if (usuarioP.getText().equals("profesora") && passP.getText().equals("123")) {
+            Profesor profeVentana = new Profesor();
+            profeVentana.setVisible(true);
+            dispose();
+        }
     }//GEN-LAST:event_sigPActionPerformed
 
     private void regisActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_regisActionPerformed
@@ -401,12 +402,13 @@ public class Principal extends javax.swing.JFrame {
         //boolean bol = ctr.validarE(usuarioE.getText(), passE.getText());
         boolean bol;
         bol = ctrl.validarE(usuarioE.getText(), passE.getText());
-        if(!bol){
+        if (!bol) {
             JOptionPane.showMessageDialog(null, "Ingresa bien los datos.");
-        }else{
-        Juegos j = new Juegos();
-        j.setVisible(true);
-        dispose();
+        } else {
+            SingletonEstudianteActivo.getInstance().setIdEstudiante(passE.getText());
+            Juegos j = new Juegos();
+            j.setVisible(true);
+            dispose();
         }
     }//GEN-LAST:event_sigE1ActionPerformed
 
@@ -416,16 +418,14 @@ public class Principal extends javax.swing.JFrame {
         estu1.setVisible(false);
     }//GEN-LAST:event_inicioActionPerformed
 
-    public void esconder(){
+    public void esconder() {
         panel2.setVisible(false);
         panel1.setVisible(false);
         estu1.setVisible(false);
         loginE.setVisible(false);
     }
-    
-    
 
-    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField apellidos;
     private javax.swing.JPanel estu1;

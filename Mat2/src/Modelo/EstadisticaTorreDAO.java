@@ -20,7 +20,7 @@ public class EstadisticaTorreDAO {
 
         try {
             conn = conexion.getConexion();
-            String query = "INSERT INTO estadisticaTorre (nombreJuego,id_estudiante,erroresUnidades,erroresDecenas,erroresCentenas, novelAlcanzado, fecha) values (?,?,?,?,?,?,?)";
+            String query = "INSERT INTO estadisticaTorre (nombreJuego,id_estudiante,erroresUnidades,erroresDecenas,erroresCentenas, nivelAlcanzado, fecha) values (?,?,?,?,?,?,?)";
             ps = conn.prepareStatement(query);
             ps.setString(1, es.getNombreJuego());
             ps.setString(2, es.getIdEstudiante());
@@ -77,4 +77,23 @@ public class EstadisticaTorreDAO {
       return r;
                 
     }
+      
+      public String traerId(String nombre, String id_estudiante){
+        String s = "";
+        String q = "SELECT id_estudiante FROM estudiante WHERE nombre='"+nombre+"'AND id_estudiante='" + id_estudiante + "'";
+        try {
+            conn = conexion.getConexion();
+            ps = conn.prepareStatement(q);
+            rs = ps.executeQuery();
+            while(rs.next()){
+                s= rs.getObject(2).toString();
+            }
+            System.out.println("Correcto");
+            
+        } catch (Exception e) {
+            System.out.println(" No Correcto");
+        }
+        
+        return s;
+      }
 }

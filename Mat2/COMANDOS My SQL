@@ -1,0 +1,1 @@
+SELECT COUNT(estadisticaRana.id_estudiante) FROM estadisticaRana WHERE estadisticaRana.id_estudiante='a'; //Trae cuantas veces está en la tabla
