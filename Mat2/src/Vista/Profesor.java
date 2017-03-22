@@ -3,11 +3,6 @@ package Vista;
 import Controlador.ControladorEstadistica;
 import java.util.ArrayList;
 
-/**
- * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
- * @author Juan Pablo Romero Laverde
- */
 public class Profesor extends javax.swing.JFrame {
 
     private ControladorEstadistica ctrlE;
@@ -33,7 +28,6 @@ public class Profesor extends javax.swing.JFrame {
         radioBJuego = new javax.swing.JRadioButton();
         radioBEstudiante = new javax.swing.JRadioButton();
         consultar = new javax.swing.JButton();
-        aceptar = new javax.swing.JButton();
         enunciado = new javax.swing.JLabel();
         atrasBtn2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
@@ -62,6 +56,11 @@ public class Profesor extends javax.swing.JFrame {
         p3.add(ranaRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
 
         torreRB.setText("La Torre");
+        torreRB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                torreRBActionPerformed(evt);
+            }
+        });
         p3.add(torreRB, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, -1, -1));
 
         getContentPane().add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 110, 270, 50));
@@ -95,14 +94,6 @@ public class Profesor extends javax.swing.JFrame {
             }
         });
         getContentPane().add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 120, -1));
-
-        aceptar.setText("Aceptar");
-        aceptar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                aceptarActionPerformed(evt);
-            }
-        });
-        getContentPane().add(aceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 80, 90, -1));
         getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 300, 50));
 
         atrasBtn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/BtnAtras.png"))); // NOI18N
@@ -149,25 +140,25 @@ public class Profesor extends javax.swing.JFrame {
 
     private void radioBJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBJuegoActionPerformed
         radioBEstudiante.setSelected(false);
+        enunciado.setText("Seleccione uno de los siguientes juegos:");
+        p3.setVisible(true);
+        p2.setVisible(false);
+        txtArea.setText("");
     }//GEN-LAST:event_radioBJuegoActionPerformed
 
     private void radioBEstudianteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBEstudianteActionPerformed
+        txtArea.setText("");
         radioBJuego.setSelected(false);
+        enunciado.setText("Escriba la identificación del estudiante:");
+        p2.setVisible(true);
+        p3.setVisible(false);
+        ArrayList<String> a = new ArrayList<String>();
+        a = ctrlE.mostrarDatosEstudiante();
+        txtArea.append("Identificación         Nombre         Apellidos                   Grado                  Grupo " + "\n");
+        for (int i = 0; i < a.size(); i++) {
+            txtArea.append(a.get(i) + "\n");
+        }
     }//GEN-LAST:event_radioBEstudianteActionPerformed
-
-    private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        if (radioBJuego.isSelected() == true) {
-
-            enunciado.setText("Seleccione uno de los siguientes juegos:");
-            p3.setVisible(true);
-            p2.setVisible(false);
-        }
-        if (radioBEstudiante.isSelected() == true) {
-            enunciado.setText("Escriba la identificación del estudiante:");
-            p2.setVisible(true);
-            p3.setVisible(false);
-        }
-    }//GEN-LAST:event_aceptarActionPerformed
 
     private void ranaRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ranaRBActionPerformed
         // TODO add your handling code here:
@@ -175,19 +166,35 @@ public class Profesor extends javax.swing.JFrame {
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
         if (torreRB.isSelected() == true) {
-            ArrayList<String> arry = ArrayList();
+//            ctrlE = new ControladorEstadistica();
+            ArrayList<String> arry = new ArrayList<String>();
             arry = ctrlE.mostrarDatosTorre();
-            System.out.println(arry.get(1));
-//            for(int i=1;i<= arry.size();i++){
-//                System.out.println(arry.get(i));
-//                txtArea.append(arry.get(i));
-//            }
+            txtArea.append("Nombre            Apellidos           Fallas Unidades            Fallas Decenas              Falla Centenas               Último Nivel");
+            for (int i = 0; i < arry.size(); i++) {
+                txtArea.append(arry.get(i) + "\n");
+            }
+        } else if (radioBEstudiante.isSelected()) {
+            if (!idBus.toString().isEmpty()) {
+                txtArea.setText("");
+                ArrayList<String> arry = new ArrayList<String>();
+                arry = ctrlE.mostrarDatosXestudiante(idBus.toString());
+                txtArea.append("N A   NJ     FU   FDece    FC    ÚN   NJ   FA   FDescen");
+                for (int i = 0; i < arry.size(); i++) {
+                    txtArea.append(arry.get(i) + "\n");
+                }
+
+            } else {
+
+            }
         }
     }//GEN-LAST:event_consultarActionPerformed
 
+    private void torreRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_torreRBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_torreRBActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton aceptar;
     private javax.swing.JButton atrasBtn2;
     private javax.swing.JButton consultar;
     private javax.swing.JLabel enunciado;

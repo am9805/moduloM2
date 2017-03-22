@@ -1,13 +1,21 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Vista;
 
 import Controlador.ControladorPrincipal;
 import Modelo.SingletonEstudianteActivo;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 
 /**
- * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
- * @author Juan Pablo Romero Laverde
+ *
+ * @author angelica.arroyavem
  */
 public class Principal extends javax.swing.JFrame {
 
@@ -39,6 +47,7 @@ public class Principal extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         passE = new javax.swing.JTextField();
         sigE1 = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
         estu1 = new javax.swing.JPanel();
         inicio = new javax.swing.JButton();
         regis = new javax.swing.JButton();
@@ -100,12 +109,17 @@ public class Principal extends javax.swing.JFrame {
         getContentPane().add(profe, new org.netbeans.lib.awtextra.AbsoluteConstraints(79, 119, 250, 70));
 
         loginE.setOpaque(false);
+        loginE.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel8.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel8.setText("Estudiante:");
+        loginE.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 31, 86, 25));
+        loginE.add(usuarioE, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 34, 177, -1));
 
         jLabel9.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel9.setText("Identificación:");
+        loginE.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 66, -1, -1));
+        loginE.add(passE, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 62, 184, -1));
 
         sigE1.setText("Siguiente");
         sigE1.addActionListener(new java.awt.event.ActionListener() {
@@ -113,45 +127,11 @@ public class Principal extends javax.swing.JFrame {
                 sigE1ActionPerformed(evt);
             }
         });
+        loginE.add(sigE1, new org.netbeans.lib.awtextra.AbsoluteConstraints(136, 93, 141, -1));
 
-        javax.swing.GroupLayout loginELayout = new javax.swing.GroupLayout(loginE);
-        loginE.setLayout(loginELayout);
-        loginELayout.setHorizontalGroup(
-            loginELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginELayout.createSequentialGroup()
-                .addGroup(loginELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(loginELayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(loginELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(loginELayout.createSequentialGroup()
-                                .addComponent(jLabel9)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(passE, javax.swing.GroupLayout.DEFAULT_SIZE, 174, Short.MAX_VALUE))
-                            .addComponent(sigE1, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(loginELayout.createSequentialGroup()
-                        .addGap(5, 5, 5)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 86, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(3, 3, 3)
-                        .addComponent(usuarioE)))
-                .addContainerGap())
-        );
-        loginELayout.setVerticalGroup(
-            loginELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(loginELayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(loginELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(usuarioE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(3, 3, 3)
-                .addGroup(loginELayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(loginELayout.createSequentialGroup()
-                        .addGap(10, 10, 10)
-                        .addComponent(jLabel9))
-                    .addComponent(passE, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(sigE1)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel11.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel11.setText("Inicio de Sesión");
+        loginE.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 0, 110, 20));
 
         getContentPane().add(loginE, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 220, 310, -1));
 
@@ -353,9 +333,8 @@ public class Principal extends javax.swing.JFrame {
     private void sigEActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigEActionPerformed
 
         ctrl.guardarE(nombre, apellidos, grado, grupo, id);
-        Juegos j = new Juegos();
-        j.setVisible(true);
-        dispose();
+        panel2.setVisible(false);
+        loginE.setVisible(true);
     }//GEN-LAST:event_sigEActionPerformed
 
     private void profeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_profeActionPerformed
@@ -425,6 +404,7 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JButton inicio;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

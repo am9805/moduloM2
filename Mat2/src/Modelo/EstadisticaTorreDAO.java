@@ -1,16 +1,17 @@
-package Modelo;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.Statement;
-import java.util.ArrayList;
+package Modelo;
 
 /**
  * @author Santiago Bedoya Betancur
  * @author Angelica Arroyame Mendoza
  * @author Juan Pablo Romero Laverde
  */
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import java.util.ArrayList;
+
 public class EstadisticaTorreDAO {
 
     PreparedStatement ps = null;
@@ -47,18 +48,20 @@ public class EstadisticaTorreDAO {
     }
 
     public ArrayList<String> informaciónTorre() {
-        ArrayList<String> r = null;
-        String s = "";
+        ArrayList<String> r = new ArrayList<String>();
+        String espa= "                              ";
+        String espa2="                                        ";
+        String espa3="                                               ";
         String q = "SELECT  T.nombre, T.apellidos, O.erroresUnidades, O.erroresDecenas, O.erroresCentenas, O.nivelAlcanzado FROM estudiante T, estadisticaTorre O WHERE T.id_estudiante = O.id_estudiante";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
             while (rs.next()) {
-
-                s.concat(rs.getObject(1).toString() + " " + rs.getObject(2).toString() + " " + rs.getObject(3).toString() + " " + rs.getObject(4).toString() + " " + rs.getObject(5).toString() + " " + rs.getObject(6).toString());
-                r.add(s);
-                System.out.println(s);
+                
+                String a = (rs.getObject(1) +espa+rs.getObject(2)+espa+ rs.getObject(3) +espa2+rs.getObject(4)+espa3+ rs.getObject(5)+espa+rs.getObject(6)).toString();
+                
+                r.add(a);
             }
             System.out.println("Correcto");
 
