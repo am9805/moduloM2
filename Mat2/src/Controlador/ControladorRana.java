@@ -26,8 +26,7 @@ public class ControladorRana {
     EstadisticaRana estadisticaRana = new EstadisticaRana("FROGGIE", fecha, SingletonEstudianteActivo.getInstance().getIdEstudiante());
      
      public void llenarTabla() {
-        EstadisticaRanaDAO a = new EstadisticaRanaDAO();
-        
+        EstadisticaRanaDAO a = new EstadisticaRanaDAO();        
         a.AgregarEstadisticaR(estadisticaRana);
     }
 }
