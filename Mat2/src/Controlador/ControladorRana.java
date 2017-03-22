@@ -24,7 +24,7 @@ public class ControladorRana {
     String annio = Integer.toString(c.get(Calendar.YEAR));
     String fecha = (dia + "/" + mes + "/" + annio);;
     EstadisticaRana estadisticaRana = new EstadisticaRana("FROGGIE", fecha, SingletonEstudianteActivo.getInstance().getIdEstudiante());
-     
+    
      public void llenarTabla() {
         EstadisticaRanaDAO a = new EstadisticaRanaDAO();        
         a.AgregarEstadisticaR(estadisticaRana);

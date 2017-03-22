@@ -33,11 +33,11 @@ public class ControladorEstadistica {
         return r;
     }
      
-//      public ArrayList<String> mostrarDatosRana(){
-//        esRaDAO = new EstadisticaRanaDAO();
-//        ArrayList<String> r = esRaDAO.informaciónRana();
-//        return r;
-//    }
+      public ArrayList<String> mostrarDatosRana(){
+        esRaDAO = new EstadisticaRanaDAO();
+        ArrayList<String> r = esRaDAO.informaciónRana();
+        return r;
+    }
     
     public void imprimir(ArrayList a){
         for(int i=0;i<=a.size();i++){

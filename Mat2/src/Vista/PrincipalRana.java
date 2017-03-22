@@ -91,6 +91,7 @@ public class PrincipalRana extends javax.swing.JFrame {
         texto1 = new javax.swing.JLabel();
         texto2 = new javax.swing.JLabel();
         texto3 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
         texto4 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
@@ -219,6 +220,16 @@ public class PrincipalRana extends javax.swing.JFrame {
         texto3.setText("Para poder Ganar");
         getContentPane().add(texto3, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 570, -1, -1));
 
+        jLabel2.setFont(new java.awt.Font("Snap ITC", 1, 36)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel2.setText("SALIR");
+        jLabel2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel2MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1170, 230, -1, 50));
+
         texto4.setFont(new java.awt.Font("Snap ITC", 1, 14)); // NOI18N
         texto4.setForeground(new java.awt.Color(255, 255, 255));
         texto4.setText("HAS CLIC AQUI PARA QUE  ");
@@ -272,6 +283,12 @@ public class PrincipalRana extends javax.swing.JFrame {
 
     }//GEN-LAST:event_avanzarMouseClicked
 
+    private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
+      this.setVisible(false);
+      Juegos j = new Juegos();
+      j.setVisible(true);
+    }//GEN-LAST:event_jLabel2MouseClicked
+
    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -290,6 +307,7 @@ public class PrincipalRana extends javax.swing.JFrame {
     private javax.swing.JLabel avanzar;
     private javax.swing.JLabel forden;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jugar;
     private javax.swing.JLabel lblCronometro;
     private javax.swing.JLabel num1;
