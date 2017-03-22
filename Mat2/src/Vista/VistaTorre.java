@@ -3,9 +3,9 @@ package Vista;
 import Controlador.ControladorTorre;
 import Controlador.ControladorTorreDosCifras;
 import Controlador.ControladorTorreTresCifras;
-import Modelo.EstadisticaTorre;
 import Modelo.ModeloTorre;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
 /**
@@ -29,14 +29,6 @@ public class VistaTorre extends javax.swing.JFrame {
         this.cantidadCifras = cantidadCifras;
     }
 
-    public int getAux() {
-        return aux;
-    }
-
-    public void setAux(int aux) {
-        this.aux = aux;
-    }
-
     public ControladorTorre getControladorTorre() {
         return ControladorTorre;
     }
@@ -57,7 +49,10 @@ public class VistaTorre extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
-        inicializarLabels();
+        inicializarLabels(nivelesTorre());
+        inicializarLabels(temblores());
+        cantidadCifras = cantidadDeCifras;
+        nivel11.setVisible(false);
         if (cantidadDeCifras == 2) {
             ControladorTorre = new ControladorTorreDosCifras();
             txtFCentenas.setVisible(false);
@@ -73,17 +68,15 @@ public class VistaTorre extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel3 = new javax.swing.JLabel();
+        temblor1 = new javax.swing.JLabel();
+        temblor2 = new javax.swing.JLabel();
+        temblor3 = new javax.swing.JLabel();
         btnVerificarNumero = new javax.swing.JButton();
         txtFCentenas = new javax.swing.JTextField();
         txtFDecenas = new javax.swing.JTextField();
         txtFUnidades = new javax.swing.JTextField();
         txtNumero = new javax.swing.JTextField();
         btnSalir = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         numeroNivel10 = new javax.swing.JLabel();
         numeroNivel9 = new javax.swing.JLabel();
         numeroNivel8 = new javax.swing.JLabel();
@@ -116,8 +109,14 @@ public class VistaTorre extends javax.swing.JFrame {
         setSize(new java.awt.Dimension(800, 500));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/output_SqbO8w.gif"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 510, 290, 60));
+        temblor1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/output_SqbO8w.gif"))); // NOI18N
+        getContentPane().add(temblor1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 420, 290, 60));
+
+        temblor2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/output_SqbO8w.gif"))); // NOI18N
+        getContentPane().add(temblor2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 280, 290, 60));
+
+        temblor3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/output_SqbO8w.gif"))); // NOI18N
+        getContentPane().add(temblor3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 150, 290, 60));
 
         btnVerificarNumero.setText("Verificar Número");
         btnVerificarNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -126,13 +125,13 @@ public class VistaTorre extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnVerificarNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 410, -1, -1));
-        getContentPane().add(txtFCentenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 290, 70, -1));
-        getContentPane().add(txtFDecenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 290, 70, -1));
-        getContentPane().add(txtFUnidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 290, 70, -1));
+        getContentPane().add(txtFCentenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 380, 70, -1));
+        getContentPane().add(txtFDecenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 380, 70, -1));
+        getContentPane().add(txtFUnidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 380, 70, -1));
 
         txtNumero.setFont(new java.awt.Font("DejaVu Sans", 1, 14)); // NOI18N
         txtNumero.setEnabled(false);
-        getContentPane().add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 220, 270, -1));
+        getContentPane().add(txtNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 270, -1));
 
         btnSalir.setText("Salir del juego");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -141,19 +140,6 @@ public class VistaTorre extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 440, 150, -1));
-
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 70, 20));
-
-        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 20, 70, 20));
-
-        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 20, 70, 20));
-
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 340, 270, 60));
 
         numeroNivel10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         numeroNivel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -250,15 +236,15 @@ public class VistaTorre extends javax.swing.JFrame {
 
         Centenas.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         Centenas.setText("Centenas.");
-        getContentPane().add(Centenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 270, -1, -1));
+        getContentPane().add(Centenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 360, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel1.setText("Decenas.");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 270, 70, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 360, 70, -1));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel2.setText("Unidades.");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 270, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 360, -1, -1));
 
         Fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/FondoJTorre.png"))); // NOI18N
         getContentPane().add(Fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 900, 580));
@@ -267,23 +253,29 @@ public class VistaTorre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerificarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarNumeroActionPerformed
-        boolean numeroValido = ControladorTorre.validarNumero(txtFUnidades, txtFDecenas, txtFCentenas, Integer.toString(Torre.getNumeroActual()));
+        String numeroAct = Integer.toString(Torre.getNumeroActual());
+        boolean numeroValido = ControladorTorre.validarNumero(txtFUnidades, txtFDecenas, txtFCentenas, numeroAct, true);
         int nivel = Torre.getNivel();
-        int a = Torre.getNumeroActual();
         if (numeroValido) {
-            if (nivel % 3 == 2) {
-                this.setVisible(false);
-                OrganizarNumeros organizarNumeros = new OrganizarNumeros(this);
-                organizarNumeros.setVisible(true);
-            }
+
             if (nivel < 9) {
                 nuevoNumero(nivel);
             } else {
+                nivel10.setVisible(true);
                 nivel11.setVisible(true);
                 mostrarNumero(Torre.getNumeroActual(), 9);
                 txtNumero.setText("FELICIDADES");
                 btnVerificarNumero.setEnabled(false);
                 bloquearTxtF(txtFUnidades, txtFDecenas, txtFCentenas);
+            }
+            if (nivel % 3 == 2) {
+                temblores()[aux].setVisible(true);
+                JOptionPane.showMessageDialog(null, "Oh, Ha ocurrido un pequeño temblor.\nOrganiza los números por favor.\nRecuerda bien el último número que ingresaste", "Temblor", JOptionPane.WARNING_MESSAGE);
+                this.setVisible(false);
+                OrganizarNumerosTorre organizarNumeros = new OrganizarNumerosTorre(this, numeroAct);
+                organizarNumeros.setVisible(true);
+                temblores()[aux].setVisible(false);
+                aux++;
             }
         }
         reiniciarTxtF(txtFUnidades, txtFDecenas, txtFCentenas);
@@ -318,10 +310,9 @@ public class VistaTorre extends javax.swing.JFrame {
         labelN(nivel).setText(Integer.toString(numero));
     }
 
-    private void inicializarLabels() {
-        JLabel[] vectorLabels = nivelesTorre();
-        for (int k = 0; k < 10; k++) {
-            vectorLabels[k].setVisible(false);
+    private void inicializarLabels(JLabel[] vector) {
+        for (JLabel vector1 : vector) {
+            vector1.setVisible(false);
         }
     }
 
@@ -337,18 +328,26 @@ public class VistaTorre extends javax.swing.JFrame {
         txtFCentenas.setEnabled(false);
     }
 
+    public JLabel[] temblores() {
+        JLabel[] vectorTemblores = new JLabel[3];
+        vectorTemblores[0] = temblor1;
+        vectorTemblores[1] = temblor2;
+        vectorTemblores[2] = temblor3;
+        return vectorTemblores;
+    }
+
     public JLabel[] nivelesTorre() {
         JLabel[] vectorLabels = new JLabel[10];
-        vectorLabels[0] = nivel2;
-        vectorLabels[1] = nivel3;
-        vectorLabels[2] = nivel4;
-        vectorLabels[3] = nivel5;
-        vectorLabels[4] = nivel6;
-        vectorLabels[5] = nivel7;
-        vectorLabels[6] = nivel8;
-        vectorLabels[7] = nivel9;
-        vectorLabels[8] = nivel10;
-        vectorLabels[9] = nivel11;
+        vectorLabels[0] = nivel1;
+        vectorLabels[1] = nivel2;
+        vectorLabels[2] = nivel3;
+        vectorLabels[3] = nivel4;
+        vectorLabels[4] = nivel5;
+        vectorLabels[5] = nivel6;
+        vectorLabels[6] = nivel7;
+        vectorLabels[7] = nivel8;
+        vectorLabels[8] = nivel9;
+        vectorLabels[9] = nivel10;
         return vectorLabels;
     }
 
@@ -374,11 +373,6 @@ public class VistaTorre extends javax.swing.JFrame {
     private javax.swing.JButton btnVerificarNumero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel nivel1;
     private javax.swing.JLabel nivel10;
     private javax.swing.JLabel nivel11;
@@ -400,6 +394,9 @@ public class VistaTorre extends javax.swing.JFrame {
     private javax.swing.JLabel numeroNivel7;
     private javax.swing.JLabel numeroNivel8;
     private javax.swing.JLabel numeroNivel9;
+    private javax.swing.JLabel temblor1;
+    private javax.swing.JLabel temblor2;
+    private javax.swing.JLabel temblor3;
     private javax.swing.JTextField txtFCentenas;
     private javax.swing.JTextField txtFDecenas;
     private javax.swing.JTextField txtFUnidades;

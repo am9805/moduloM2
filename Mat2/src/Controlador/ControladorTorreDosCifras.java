@@ -1,6 +1,5 @@
 package Controlador;
 
-import static java.util.concurrent.ThreadLocalRandom.current;
 import javax.swing.JTextField;
 
 /**
@@ -12,10 +11,10 @@ import javax.swing.JTextField;
 public class ControladorTorreDosCifras extends ControladorTorre {
 
     @Override
-    public boolean validarNumero(JTextField txtFUnidades, JTextField txtFDecenas, JTextField txtFCentenas, String numeroCorrecto) {
+    public boolean validarNumero(JTextField txtFUnidades, JTextField txtFDecenas, JTextField txtFCentenas, String numeroCorrecto, boolean identificador) {
         boolean unidadesCorrectas = txtFUnidades.getText().equals(numeroCorrecto.substring(1, 2));
         boolean decenasCorrectas = txtFDecenas.getText().equals(numeroCorrecto.substring(0, 1));
-        errores(unidadesCorrectas, decenasCorrectas, true);
+        errores(unidadesCorrectas, decenasCorrectas, true, identificador);
         return (unidadesCorrectas && decenasCorrectas);
     }
 
@@ -52,20 +51,6 @@ public class ControladorTorreDosCifras extends ControladorTorre {
         }
         numeroEnLetras = vectorDecenas[decenas + 6] + " y " + vectorUnidades[unidades];
         return numeroEnLetras + ".";
-    }
-
-    @Override
-    public int numeroAleatorio() {
-        double numeroAleatorio;
-        int nivelActual = Torre.getNivel();
-        int limiteSuperior = 19;
-        int limiteInferior = 10;
-        if (nivelActual != 0) {
-            limiteInferior = 10 * nivelActual;
-            limiteSuperior = limiteInferior + 9;
-        }
-        numeroAleatorio = current().nextInt(limiteInferior, limiteSuperior + 1);
-        return (int) (numeroAleatorio);
     }
 
 }

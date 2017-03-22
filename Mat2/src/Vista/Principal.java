@@ -1,21 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Vista;
 
 import Controlador.ControladorPrincipal;
 import Modelo.SingletonEstudianteActivo;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
 
 /**
- *
- * @author angelica.arroyavem
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyame Mendoza
+ * @author Juan Pablo Romero Laverde
  */
 public class Principal extends javax.swing.JFrame {
 
@@ -84,7 +76,6 @@ public class Principal extends javax.swing.JFrame {
         estudiante.setText("Estudiante (Click Aquí!).");
         estudiante.setBorderPainted(false);
         estudiante.setFocusPainted(false);
-        estudiante.setOpaque(true);
         estudiante.setRolloverEnabled(false);
         estudiante.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -99,7 +90,6 @@ public class Principal extends javax.swing.JFrame {
         profe.setText("Profesor (Click Aquí!).");
         profe.setBorderPainted(false);
         profe.setFocusPainted(false);
-        profe.setOpaque(true);
         profe.setPreferredSize(new java.awt.Dimension(259, 79));
         profe.setRolloverEnabled(false);
         profe.addActionListener(new java.awt.event.ActionListener() {
@@ -170,7 +160,6 @@ public class Principal extends javax.swing.JFrame {
         inicio.setForeground(new java.awt.Color(254, 254, 254));
         inicio.setText("Iniciar Sesión.");
         inicio.setBorderPainted(false);
-        inicio.setOpaque(true);
         inicio.setRolloverEnabled(false);
         inicio.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -184,7 +173,6 @@ public class Principal extends javax.swing.JFrame {
         regis.setText("Registrarse.");
         regis.setBorderPainted(false);
         regis.setFocusPainted(false);
-        regis.setOpaque(true);
         regis.setRolloverEnabled(false);
         regis.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

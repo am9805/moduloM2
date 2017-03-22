@@ -1,12 +1,17 @@
-
 package Vista;
 
 import Controlador.ControladorEstadistica;
 import java.util.ArrayList;
 
+/**
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyame Mendoza
+ * @author Juan Pablo Romero Laverde
+ */
 public class Profesor extends javax.swing.JFrame {
-    
-   private ControladorEstadistica ctrlE;
+
+    private ControladorEstadistica ctrlE;
+
     public Profesor() {
         initComponents();
         setLocationRelativeTo(null);
@@ -103,7 +108,6 @@ public class Profesor extends javax.swing.JFrame {
         atrasBtn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/BtnAtras.png"))); // NOI18N
         atrasBtn2.setBorderPainted(false);
         atrasBtn2.setFocusPainted(false);
-        atrasBtn2.setOpaque(true);
         atrasBtn2.setRolloverEnabled(false);
         atrasBtn2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -152,13 +156,13 @@ public class Profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_radioBEstudianteActionPerformed
 
     private void aceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_aceptarActionPerformed
-        if(radioBJuego.isSelected()==true){
-            
+        if (radioBJuego.isSelected() == true) {
+
             enunciado.setText("Seleccione uno de los siguientes juegos:");
             p3.setVisible(true);
             p2.setVisible(false);
         }
-        if(radioBEstudiante.isSelected()==true){            
+        if (radioBEstudiante.isSelected() == true) {
             enunciado.setText("Escriba la identificación del estudiante:");
             p2.setVisible(true);
             p3.setVisible(false);
@@ -170,9 +174,9 @@ public class Profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_ranaRBActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-        if(torreRB.isSelected()==true){
+        if (torreRB.isSelected() == true) {
             ArrayList<String> arry = ArrayList();
-           arry = ctrlE.mostrarDatosTorre();
+            arry = ctrlE.mostrarDatosTorre();
             System.out.println(arry.get(1));
 //            for(int i=1;i<= arry.size();i++){
 //                System.out.println(arry.get(i));

@@ -1,16 +1,16 @@
 package Modelo;
 
-/**
- * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
- * @author Juan Pablo Romero Laverde
- */
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyame Mendoza
+ * @author Juan Pablo Romero Laverde
+ */
 public class EstadisticaTorreDAO {
 
     PreparedStatement ps = null;
@@ -55,9 +55,9 @@ public class EstadisticaTorreDAO {
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
             while (rs.next()) {
-                
-                    s.concat(rs.getObject(1).toString()+" "+rs.getObject(2).toString()+" "+rs.getObject(3).toString()+" "+rs.getObject(4).toString()+" "+rs.getObject(5).toString()+" "+rs.getObject(6).toString());
-                    r.add(s); 
+
+                s.concat(rs.getObject(1).toString() + " " + rs.getObject(2).toString() + " " + rs.getObject(3).toString() + " " + rs.getObject(4).toString() + " " + rs.getObject(5).toString() + " " + rs.getObject(6).toString());
+                r.add(s);
                 System.out.println(s);
             }
             System.out.println("Correcto");

@@ -1,16 +1,17 @@
-
 package Modelo;
-/**
- * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
- * @author Juan Pablo Romero Laverde
- */
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 
+/**
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyame Mendoza
+ * @author Juan Pablo Romero Laverde
+ */
 public class EstudianteDAO {
+
     PreparedStatement ps = null;
     ResultSet rs = null;
     Connection conn = null;
@@ -41,39 +42,38 @@ public class EstudianteDAO {
         }
         return true;
     }
-    
-     public boolean validarUsuario(String nombre, String id_estudiante) {      
+
+    public boolean validarUsuario(String nombre, String id_estudiante) {
         boolean r = false;
-        String q = "SELECT nombre,id_estudiante FROM estudiante WHERE nombre='"+nombre+"'AND id_estudiante='" + id_estudiante + "'";
+        String q = "SELECT nombre,id_estudiante FROM estudiante WHERE nombre='" + nombre + "'AND id_estudiante='" + id_estudiante + "'";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 System.out.println(rs.getObject(1));
             }
             System.out.println("Correcto");
-            
+
         } catch (Exception e) {
             System.out.println(" No Correcto");
         }
-        r= asignar();
+        r = asignar();
         return r;
-                
-    
+
     }
-     
-      public  boolean asignar(){
-      boolean r = false;
+
+    public boolean asignar() {
+        boolean r = false;
         try {
-            if(rs.last()){
-                
-                r=true;
+            if (rs.last()) {
+
+                r = true;
             }
         } catch (Exception e) {
         }
-      
-      return r;
-                
+
+        return r;
+
     }
 }

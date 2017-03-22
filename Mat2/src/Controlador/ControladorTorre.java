@@ -16,21 +16,19 @@ import static java.util.concurrent.ThreadLocalRandom.current;
  * @author Juan Pablo Romero Laverde
  */
 public abstract class ControladorTorre {
-    
+
     protected ModeloTorre Torre = new ModeloTorre();
     protected Estudiante Estudiante = new Estudiante();
     protected EstadisticaTorre EstadisticaTorre;
-    
-    public abstract boolean validarNumero(JTextField txtFUnidades, JTextField txtFDecenas, JTextField txtFCentenas, String numeroCorrecto);
-    
+
+    public abstract boolean validarNumero(JTextField txtFUnidades, JTextField txtFDecenas, JTextField txtFCentenas, String numeroCorrecto, boolean identificador);
+
     public abstract String cifrasALetras(int a);
-    
-    public abstract int numeroAleatorio();
-    
+
     public ModeloTorre getTorre() {
         return Torre;
     }
-    
+
     public ControladorTorre() {
         Calendar c = Calendar.getInstance();
         String dia = Integer.toString(c.get(Calendar.DATE));
@@ -39,22 +37,23 @@ public abstract class ControladorTorre {
         String Fecha = dia + "/" + mes + "/" + annio;
         EstadisticaTorre = new EstadisticaTorre(SingletonEstudianteActivo.getInstance().getIdEstudiante(), Fecha);
     }
-    
-    public void errores(boolean unidadesCorrectas, boolean decenasCorrectas, boolean centenasCorrectas) {
-        if (!unidadesCorrectas) {
-            EstadisticaTorre.setErroresUnidades(EstadisticaTorre.getErroresUnidades() + 1);
-        }
-        if (!decenasCorrectas) {
-            EstadisticaTorre.setErroresDecenas(EstadisticaTorre.getErroresDecenas() + 1);
-        }
-        if (!centenasCorrectas) {
-            EstadisticaTorre.setErroresCentenas(EstadisticaTorre.getErroresCentenas() + 1);
-        }
-        if (unidadesCorrectas && decenasCorrectas && centenasCorrectas) {
-            EstadisticaTorre.setNivelAlcanzado(EstadisticaTorre.getNivelAlcanzado() + 1);
+
+    public void errores(boolean unidadesCorrectas, boolean decenasCorrectas, boolean centenasCorrectas, boolean identificador) {
+        if (identificador) {
+            if (!unidadesCorrectas) {
+                EstadisticaTorre.setErroresUnidades(EstadisticaTorre.getErroresUnidades() + 1);
+            }
+            if (!decenasCorrectas) {
+                EstadisticaTorre.setErroresDecenas(EstadisticaTorre.getErroresDecenas() + 1);
+            }
+            if (!centenasCorrectas) {
+                EstadisticaTorre.setErroresCentenas(EstadisticaTorre.getErroresCentenas() + 1);
+            }
+            if (unidadesCorrectas && decenasCorrectas && centenasCorrectas) {
+                EstadisticaTorre.setNivelAlcanzado(EstadisticaTorre.getNivelAlcanzado() + 1);
+            }
         }
     }
-    
 
 //    public String mensaje(int numeroMensaje) {
 //        String[] mensajes = new String[4];
@@ -64,24 +63,23 @@ public abstract class ControladorTorre {
 //        mensajes[3] = "Ha ocurrido un pequeño temblor.\nOrganiza los números por favor.";
 //        return mensajes[numeroMensaje];
 //    }
-
     public String[] centenas() {
         String[] centenas = {"ciento", "cien", "doscientos", "trescientos", "cuatrocientos",
             "quinientos", "seiscientos", "setecientos", "ochocientos", "novecientos"};
         return centenas;
     }
-    
+
     public String[] decenas() {
         String[] decenas = {"diez", "once", "doce", "trece", "catorce", "quince", "dieci", "veinte",
             "veinti", "treinta", "cuarenta", "ciencuenta", "sesenta", "setenta", "ochenta", "noventa"};
         return decenas;
     }
-    
+
     public String[] unidades() {
         String[] unidades = {"", "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve"};
         return unidades;
     }
-    
+
     public void siguienteNumeroAleatorio() {
         String numeros;
         Torre.setNumeroActual(numeroAleatorio());
@@ -92,7 +90,7 @@ public abstract class ControladorTorre {
         }
         Torre.setNumeroString(numeros);
     }
-    
+
     public boolean siguienteNumeroEnLetras() {
         boolean decision = true;
         if (Torre.getCantidadNumerosEnDigitos() == 5) {
@@ -109,10 +107,29 @@ public abstract class ControladorTorre {
         }
         return decision;
     }
-    
+
     public void llenarTabla() {
         EstadisticaTorreDAO a = new EstadisticaTorreDAO();
         a.AgregarEstadisticaT(EstadisticaTorre);
     }
-    
+
+    public int numeroAleatorio() {
+        double numeroAleatorio;
+        int nivelActual = Torre.getNivel();
+        int limiteSuperior = 199;
+        int limiteInferior = 100;
+        int intervalo = 99;
+        if (100 - Torre.getNumeroActual() > 0) {
+            limiteSuperior = 19;
+            limiteInferior = 10;
+            intervalo = 9;
+        }
+        if (nivelActual != 0) {
+            limiteInferior = limiteInferior * nivelActual;
+            limiteSuperior = limiteInferior + intervalo;
+        }
+        numeroAleatorio = current().nextInt(limiteInferior, limiteSuperior + 1);
+        return (int) (numeroAleatorio);
+    }
+
 }

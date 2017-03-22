@@ -52,7 +52,6 @@
         <Property name="autoscrolls" type="boolean" value="true"/>
         <Property name="borderPainted" type="boolean" value="false"/>
         <Property name="focusPainted" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="true"/>
         <Property name="rolloverEnabled" type="boolean" value="false"/>
       </Properties>
       <Events>
@@ -86,7 +85,6 @@
           <Color id="Cursor Por defecto"/>
         </Property>
         <Property name="focusPainted" type="boolean" value="false"/>
-        <Property name="opaque" type="boolean" value="true"/>
         <Property name="rolloverEnabled" type="boolean" value="false"/>
       </Properties>
       <Events>

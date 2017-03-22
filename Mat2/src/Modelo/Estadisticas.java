@@ -1,18 +1,17 @@
-
 package Modelo;
+
 /**
  * @author Santiago Bedoya Betancur
  * @author Angelica Arroyame Mendoza
  * @author Juan Pablo Romero Laverde
  */
 public class Estadisticas {
-        
-      protected int  vReal;
-      protected int vInsertado;
-      protected int tipoE;
-      protected int idEstudiante;
-      
-    
+
+    protected int vReal;
+    protected int vInsertado;
+    protected int tipoE;
+    protected int idEstudiante;
+
     public Estadisticas(int vReal, int vInsertado, int tipoE, int idEstudiante) {
         this.vReal = vReal;
         this.vInsertado = vInsertado;
@@ -51,8 +50,7 @@ public class Estadisticas {
     public void setIdEstudiante(int idEstudiante) {
         this.idEstudiante = idEstudiante;
     }
-      
-      
+
 //    protected int eUnidades;
 //    protected int eDecenas;
 //    protected int eCentenas;
@@ -96,7 +94,4 @@ public class Estadisticas {
 //    public void setNivel(int nivel) {
 //        this.nivel = nivel;
 //    }
-
-       
-    
 }

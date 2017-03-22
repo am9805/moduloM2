@@ -12,7 +12,7 @@ public class ModeloTorre {
     protected int numeroActual;
     String numeroString;
     protected int cantidadNumerosEnLetras;
-    protected int cantidadNumerosEnDigitos;    
+    protected int cantidadNumerosEnDigitos;
 
     public ModeloTorre() {
         nivel = 0;

@@ -1,9 +1,3 @@
-
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controlador;
 
 import Modelo.Estudiante;
@@ -11,6 +5,12 @@ import Modelo.EstudianteDAO;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
+/**
+ *
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyame Mendoza
+ * @author Juan Pablo Romero Laverde
+ */
 public class ControladorPrincipal {
 
     private Estudiante est;
@@ -35,8 +35,8 @@ public class ControladorPrincipal {
     public boolean validarE(String nombre, String id_estudiante) {
         boolean a;
         edao = new EstudianteDAO();
-        a = edao.validarUsuario(nombre, id_estudiante); 
-        
+        a = edao.validarUsuario(nombre, id_estudiante);
+
         return a;
     }
 

@@ -11,8 +11,7 @@ public class VistaSeleccionarTorre extends javax.swing.JFrame {
     public VistaSeleccionarTorre() {
         initComponents();
         setLocationRelativeTo(null);
-        
-        
+
     }
 
     @SuppressWarnings("unchecked")
@@ -101,7 +100,6 @@ public class VistaSeleccionarTorre extends javax.swing.JFrame {
         this.dispose();
         NuevaTorre.setVisible(true);
     }
-
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

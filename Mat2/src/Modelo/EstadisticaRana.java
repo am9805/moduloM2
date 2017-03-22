@@ -1,23 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Modelo;
-
-import java.awt.event.ActionEvent;
-import javax.swing.JLabel;
 
 /**
  *
- * @author JuanPablo
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyame Mendoza
+ * @author Juan Pablo Romero Laverde
  */
 public class EstadisticaRana {
 
     private String nombreJuego;
     private int errorAscendente;
     private int errorDescendente;
-    private String fecha;    
+    private String fecha;
     String idEstudiante;
 
     public EstadisticaRana() {
@@ -70,6 +64,5 @@ public class EstadisticaRana {
     public void setIdEstudiante(String idEstudiante) {
         this.idEstudiante = idEstudiante;
     }
-    
-    
+
 }

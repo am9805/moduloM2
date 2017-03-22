@@ -1,14 +1,17 @@
-
 package Modelo;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+
 /**
  *
- * @author angelica.arroyavem
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyame Mendoza
+ * @author Juan Pablo Romero Laverde
  */
-
 public class ConexionBD {
+
     private static Connection connection;
 
     private static String driver = "com.mysql.jdbc.Driver";
