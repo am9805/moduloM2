@@ -72,7 +72,6 @@ public class EstudianteDAO {
             while (rs.next()) {
             }
             
-
         } catch (Exception e) {
             
         }

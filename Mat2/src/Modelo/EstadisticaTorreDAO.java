@@ -1,9 +1,9 @@
-
 package Modelo;
 
 /**
+ * EstadisticaTorreDAO: Esta clase es la encargada de realizar la conexión del programa con la tabla "estadisticaTorre".
  * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
+ * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
  */
 import java.sql.Connection;
@@ -20,6 +20,12 @@ public class EstadisticaTorreDAO {
     ConexionBD conexion = null;
     static Statement sentencia;
 
+    /**
+     * AgregarEstadisticaT: Método encargado de agregar un objeto de tipo EstadisticaTorre (osea la estadistica que se va a almacenar
+     * despues de que el niño haya jugado el juego de la torre) a la tabla "estadisticaTorre.
+     * @param es
+     * @return 
+     */
     public boolean AgregarEstadisticaT(EstadisticaTorre es) {
 
         try {
@@ -46,8 +52,11 @@ public class EstadisticaTorreDAO {
         }
         return true;
     }
-
-    public ArrayList<String> informaciónTorre() {
+    /**
+     * informacionTorre: Retorna un arreglo de strings que contiene en cada campo los datos que estan el la tabla "estadisticaTorre".
+     * @return 
+     */
+    public ArrayList<String> informacionTorre() {
         ArrayList<String> r = new ArrayList<String>();
         String espa= "                              ";
         String espa2="                                        ";
@@ -68,20 +77,6 @@ public class EstadisticaTorreDAO {
         } catch (Exception e) {
             System.out.println(" No Correcto");
         }
-        return r;
-
-    }
-
-    public boolean asignar() {
-        boolean r = false;
-        try {
-            if (rs.last()) {
-
-                r = true;
-            }
-        } catch (Exception e) {
-        }
-
         return r;
 
     }

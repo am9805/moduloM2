@@ -1,3 +1,8 @@
+/**
+ * Profesor: Esta clase se encarga de habilitar la ventana en la que el profesor consulta las estadísticas de los estudiantes.
+ * 
+ */
+
 package Vista;
 
 import Controlador.ControladorEstadistica;
@@ -120,7 +125,7 @@ public class Profesor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void radioBJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBJuegoActionPerformed
         radioBEstudiante.setSelected(false);
         enunciado.setText("Seleccione uno de los siguientes juegos:");
@@ -146,7 +151,11 @@ public class Profesor extends javax.swing.JFrame {
     private void ranaRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ranaRBActionPerformed
         torreRB.setSelected(false);
     }//GEN-LAST:event_ranaRBActionPerformed
-
+    /**
+     * Consultar: Al dar click en este boton se agrega a un text area un conjunto de estadisticas dependiendo 
+     * del radio button que esté seleccionado.
+     * @param evt 
+     */
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
         if (torreRB.isSelected() == true) {
 //            ctrlE = new ControladorEstadistica();
@@ -161,7 +170,7 @@ public class Profesor extends javax.swing.JFrame {
         } else if (ranaRB.isSelected() == true) {
             txtArea.setText("");
             ArrayList<String> arry = new ArrayList<String>();
-            arry = ctrlE.mostrarDatosRana();
+//            arry = ctrlE.mostrarDatosRana();
             txtArea.append("Nombre            Apellidos           Fallas Ascendente            Fallas Descendente    " + "\n");
             for (int i = 0; i < arry.size(); i++) {
                 txtArea.append(arry.get(i) + "\n");
