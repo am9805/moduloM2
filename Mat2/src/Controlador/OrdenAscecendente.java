@@ -53,8 +53,8 @@ public class OrdenAscecendente implements IOrdenarStrategy {
 
             } else {
                 numRoc1.setText("");
-                JOptionPane.showMessageDialog(null, "Te has equivocao, vuelve a intentar");
-                Estaditisticarana.setErrorAscendente(Estaditisticarana.getErrorAscendente() + 1);
+                JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intentar");
+                EstadisticaRana.setErrorAscendente(EstadisticaRana.getErrorAscendente() + 1);
             }
         }
         if (!"".equals(roc2)) {
@@ -66,8 +66,8 @@ public class OrdenAscecendente implements IOrdenarStrategy {
 
             } else {
                 numRoc2.setText("");
-                JOptionPane.showMessageDialog(null, "Te has equivocao, vuelve a intentar");
-                Estaditisticarana.setErrorAscendente(Estaditisticarana.getErrorAscendente() + 1);
+                JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intentar");
+                EstadisticaRana.setErrorAscendente(EstadisticaRana.getErrorAscendente() + 1);
             }
         }
         if (!"".equals(roc3)) {
@@ -79,8 +79,8 @@ public class OrdenAscecendente implements IOrdenarStrategy {
 
             } else {
                 numRoc3.setText("");
-                JOptionPane.showMessageDialog(null, "Te has equivocao, vuelve a intenntar");
-                Estaditisticarana.setErrorAscendente(Estaditisticarana.getErrorAscendente() + 1);
+                JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intenntar");
+                EstadisticaRana.setErrorAscendente(EstadisticaRana.getErrorAscendente() + 1);
             }
         }
 
@@ -107,7 +107,7 @@ public class OrdenAscecendente implements IOrdenarStrategy {
             } else {
                 numRoc4.setText("");
                 JOptionPane.showMessageDialog(null, "Te has equivocao, vuelve a intentar");
-                Estaditisticarana.setErrorAscendente(Estaditisticarana.getErrorAscendente() + 1);
+                EstadisticaRana.setErrorAscendente(EstadisticaRana.getErrorAscendente() + 1);
             }
 
         }

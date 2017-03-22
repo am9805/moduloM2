@@ -1,5 +1,6 @@
 package Controlador;
 
+import static java.util.concurrent.ThreadLocalRandom.current;
 import javax.swing.JTextField;
 
 /**
@@ -65,6 +66,19 @@ public class ControladorTorreTresCifras extends ControladorTorre {
         return numeroEnLetras + ".";
     }
 
-    
+    public int numeroAleatorio() {
+        double numeroAleatorio;
+        int nivelActual = Torre.getNivel();
+        int limiteSuperior = 199;
+        int limiteInferior = 100;
+        int intervalo = 99;
+
+        if (nivelActual != 0) {
+            limiteInferior = limiteInferior * nivelActual;
+            limiteSuperior = limiteInferior + intervalo;
+        }
+        numeroAleatorio = current().nextInt(limiteInferior, limiteSuperior + 1);
+        return (int) (numeroAleatorio);
+    }
 
 }

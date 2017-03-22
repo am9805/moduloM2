@@ -10,7 +10,7 @@ import java.sql.Statement;
  * @author Angelica Arroyame Mendoza
  * @author Juan Pablo Romero Laverde
  */
-public class EstaditicaRanaDao {
+public class EstadisticaRanaDao {
 
     PreparedStatement ps = null;
     ResultSet rs = null;
@@ -18,7 +18,7 @@ public class EstaditicaRanaDao {
     ConexionBD conexion = null;
     static Statement sentencia;
 
-    public boolean AgregarEstadisticaT(EstadisticaRana es) {
+    public boolean AgregarEstadisticaR(EstadisticaRana es) {
 
         try {
             conn = conexion.getConexion();

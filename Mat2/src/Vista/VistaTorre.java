@@ -259,8 +259,10 @@ public class VistaTorre extends javax.swing.JFrame {
         if (numeroValido) {
 
             if (nivel < 9) {
+                JOptionPane.showMessageDialog(null, "Muy Bien. ¡Continúa!");
                 nuevoNumero(nivel);
             } else {
+                Torre.setNivel(nivel + 1);
                 nivel10.setVisible(true);
                 nivel11.setVisible(true);
                 mostrarNumero(Torre.getNumeroActual(), 9);
@@ -277,11 +279,20 @@ public class VistaTorre extends javax.swing.JFrame {
                 temblores()[aux].setVisible(false);
                 aux++;
             }
+        } else {
+            JOptionPane.showMessageDialog(null, "Te equivocaste. ¡Puedes lograrlo!");
         }
         reiniciarTxtF(txtFUnidades, txtFDecenas, txtFCentenas);
     }//GEN-LAST:event_btnVerificarNumeroActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+
+        if (Torre.getNivel() != 10) {
+            JOptionPane.showMessageDialog(null, "Aún no has terminado, la proxima vez lo lograras.");
+        } else {
+            
+        }
+
         ControladorTorre cntrlTorre = ControladorTorre;
         cntrlTorre.llenarTabla();
         this.dispose();

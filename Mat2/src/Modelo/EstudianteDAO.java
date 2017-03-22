@@ -70,12 +70,11 @@ public class EstudianteDAO {
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
             while (rs.next()) {
-                System.out.println(rs.getObject(1));
             }
-            System.out.println("Correcto");
+            
 
         } catch (Exception e) {
-            System.out.println(" No Correcto");
+            
         }
         r = asignar();
         return r;
@@ -121,17 +120,15 @@ public class EstudianteDAO {
 
                 r.add(a);
             }
-            System.out.println("Correcto");
 
         } catch (Exception e) {
-            System.out.println(" No Correcto");
         }
         return r;
     }
     
     /**
      * informacionXestudiante: Recupera de la tabla "estudiante", el estudiante con el id ingresado por parámetro
-     * junto con sus respetivos datos de la tabla "estadisticaTorre" y "estadisticaRana".
+     * junto con sus respectivos datos de la tabla "estadisticaTorre" y "estadisticaRana".
      * @return 
      */
     public ArrayList<String> informacionXestudiante(String id_estudiante) {
@@ -148,10 +145,8 @@ public class EstudianteDAO {
                 System.out.println(a);
                 r.add(a);
             }
-            System.out.println("Correcto");
 
         } catch (Exception e) {
-            System.out.println(" No Correcto");
         }
         return r;
     }

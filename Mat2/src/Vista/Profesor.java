@@ -29,7 +29,6 @@ public class Profesor extends javax.swing.JFrame {
         radioBEstudiante = new javax.swing.JRadioButton();
         consultar = new javax.swing.JButton();
         enunciado = new javax.swing.JLabel();
-        atrasBtn2 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
@@ -96,17 +95,6 @@ public class Profesor extends javax.swing.JFrame {
         getContentPane().add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 120, 120, -1));
         getContentPane().add(enunciado, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 300, 50));
 
-        atrasBtn2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/BtnAtras.png"))); // NOI18N
-        atrasBtn2.setBorderPainted(false);
-        atrasBtn2.setFocusPainted(false);
-        atrasBtn2.setRolloverEnabled(false);
-        atrasBtn2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                atrasBtn2ActionPerformed(evt);
-            }
-        });
-        getContentPane().add(atrasBtn2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 370, 80, 70));
-
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/DesempeñoT.png"))); // NOI18N
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 0, 344, 60));
 
@@ -131,12 +119,6 @@ public class Profesor extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void atrasBtn2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_atrasBtn2ActionPerformed
-        Juegos j = new Juegos();
-        j.setVisible(true);
-        dispose();
-    }//GEN-LAST:event_atrasBtn2ActionPerformed
 
     private void radioBJuegoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_radioBJuegoActionPerformed
         radioBEstudiante.setSelected(false);
@@ -167,6 +149,7 @@ public class Profesor extends javax.swing.JFrame {
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
         if (torreRB.isSelected() == true) {
 //            ctrlE = new ControladorEstadistica();
+            txtArea.setText("");
             ArrayList<String> arry = new ArrayList<String>();
             arry = ctrlE.mostrarDatosTorre();
             txtArea.append("Nombre            Apellidos           Fallas Unidades            Fallas Decenas              Falla Centenas               Último Nivel");
@@ -195,7 +178,6 @@ public class Profesor extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton atrasBtn2;
     private javax.swing.JButton consultar;
     private javax.swing.JLabel enunciado;
     private javax.swing.JLabel fondo;

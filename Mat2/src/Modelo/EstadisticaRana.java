@@ -8,53 +8,55 @@ package Modelo;
  */
 public class EstadisticaRana {
 
-    private String nombreJuego;
-    private int errorAscendente;
-    private int errorDescendente;
-    private String fecha;
-    String idEstudiante;
+    private String NombreJuego;
+    private int ErrorAscendente;
+    private int ErrorDescendente;
+    private String Fecha;
+    private String idEstudiante;
 
     public EstadisticaRana() {
     }
 
-    public EstadisticaRana(String nombreJuego, int errorAscendente, int errorDescendente, String fecha, String idEstudiante) {
-        this.nombreJuego = nombreJuego;
-        this.errorAscendente = errorAscendente;
-        this.errorDescendente = errorDescendente;
-        this.fecha = fecha;
-        this.idEstudiante = idEstudiante;
+    //CONSTRUCTOR PARA ESTADISTICAS
+    public EstadisticaRana(String NombreJuego,String FechaString,String id_Estudiante) {
+        this.NombreJuego = NombreJuego;
+        this.ErrorAscendente = 0;
+        this.ErrorDescendente = 0;
+        this.Fecha = FechaString;
+        this.idEstudiante= id_Estudiante;
     }
 
+    //METODOS GET SET PARA ESTADISTICASS
     public String getNombreJuego() {
-        return nombreJuego;
+        return NombreJuego;
     }
 
-    public void setNombreJuego(String nombreJuego) {
-        this.nombreJuego = nombreJuego;
+    public void setNombreJuego(String NombreJuego) {
+        this.NombreJuego = NombreJuego;
     }
 
     public int getErrorAscendente() {
-        return errorAscendente;
+        return ErrorAscendente;
     }
 
-    public void setErrorAscendente(int errorAscendente) {
-        this.errorAscendente = errorAscendente;
+    public void setErrorAscendente(int ErrorAscendente) {
+        this.ErrorAscendente = ErrorAscendente;
     }
 
     public int getErrorDescendente() {
-        return errorDescendente;
+        return ErrorDescendente;
     }
 
-    public void setErrorDescendente(int errorDescendente) {
-        this.errorDescendente = errorDescendente;
+    public void setErrorDescendente(int ErrorDescendente) {
+        this.ErrorDescendente = ErrorDescendente;
     }
 
     public String getFecha() {
-        return fecha;
+        return Fecha;
     }
 
-    public void setFecha(String fecha) {
-        this.fecha = fecha;
+    public void setFecha(String Fecha) {
+        this.Fecha = Fecha;
     }
 
     public String getIdEstudiante() {
@@ -64,5 +66,6 @@ public class EstadisticaRana {
     public void setIdEstudiante(String idEstudiante) {
         this.idEstudiante = idEstudiante;
     }
-
+    
+    
 }

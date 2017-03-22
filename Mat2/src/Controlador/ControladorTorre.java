@@ -25,6 +25,8 @@ public abstract class ControladorTorre {
 
     public abstract String cifrasALetras(int a);
 
+    public abstract int numeroAleatorio();
+
     public ModeloTorre getTorre() {
         return Torre;
     }
@@ -111,25 +113,6 @@ public abstract class ControladorTorre {
     public void llenarTabla() {
         EstadisticaTorreDAO a = new EstadisticaTorreDAO();
         a.AgregarEstadisticaT(EstadisticaTorre);
-    }
-
-    public int numeroAleatorio() {
-        double numeroAleatorio;
-        int nivelActual = Torre.getNivel();
-        int limiteSuperior = 199;
-        int limiteInferior = 100;
-        int intervalo = 99;
-        if (100 - Torre.getNumeroActual() > 0) {
-            limiteSuperior = 19;
-            limiteInferior = 10;
-            intervalo = 9;
-        }
-        if (nivelActual != 0) {
-            limiteInferior = limiteInferior * nivelActual;
-            limiteSuperior = limiteInferior + intervalo;
-        }
-        numeroAleatorio = current().nextInt(limiteInferior, limiteSuperior + 1);
-        return (int) (numeroAleatorio);
     }
 
 }

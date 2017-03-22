@@ -50,6 +50,9 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lbNumero1 = new javax.swing.JLabel();
+        lbNumero2 = new javax.swing.JLabel();
+        lbNumero3 = new javax.swing.JLabel();
         btnSalir = new javax.swing.JButton();
         btnVerificarNumero = new javax.swing.JButton();
         txtFCentenas = new javax.swing.JTextField();
@@ -58,12 +61,14 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
         Centenas = new javax.swing.JLabel();
-        lbNumero1 = new javax.swing.JLabel();
-        lbNumero3 = new javax.swing.JLabel();
-        lbNumero2 = new javax.swing.JLabel();
         btnReiniciar = new javax.swing.JToggleButton();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        getContentPane().add(lbNumero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 50, 20));
+        getContentPane().add(lbNumero2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 50, 20));
+        getContentPane().add(lbNumero3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 50, 20));
 
         btnSalir.setText("Salir del juego");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -71,6 +76,7 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 150, -1));
 
         btnVerificarNumero.setText("Verificar Número");
         btnVerificarNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -78,24 +84,22 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
                 btnVerificarNumeroActionPerformed(evt);
             }
         });
+        getContentPane().add(btnVerificarNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
+        getContentPane().add(txtFCentenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 149, 70, -1));
+        getContentPane().add(txtFDecenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 149, 70, -1));
+        getContentPane().add(txtFUnidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 149, 70, -1));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel2.setText("Unidades.");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 130, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel1.setText("Decenas.");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 70, -1));
 
         Centenas.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         Centenas.setText("Centenas.");
-
-        lbNumero1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbNumero1.setText("1");
-
-        lbNumero3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbNumero3.setText("4");
-
-        lbNumero2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lbNumero2.setText("4");
+        getContentPane().add(Centenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
 
         btnReiniciar.setText("Reiniciar");
         btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -103,74 +107,10 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
                 btnReiniciarActionPerformed(evt);
             }
         });
+        getContentPane().add(btnReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 100, -1));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addComponent(txtFCentenas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtFDecenas, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(10, 10, 10)
-                        .addComponent(txtFUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(btnVerificarNumero))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(70, 70, 70)
-                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(100, 100, 100)
-                        .addComponent(btnReiniciar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(30, 30, 30)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(50, 50, 50)
-                                    .addComponent(lbNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(lbNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(30, 30, 30)
-                                    .addComponent(lbNumero3, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(Centenas)
-                                .addGap(23, 23, 23)
-                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(10, 10, 10)
-                                .addComponent(jLabel2)))))
-                .addContainerGap(26, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addComponent(lbNumero1, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lbNumero2, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(lbNumero3, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(Centenas)
-                    .addComponent(jLabel1)
-                    .addComponent(jLabel2))
-                .addGap(4, 4, 4)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtFCentenas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFDecenas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtFUnidades, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
-                .addComponent(btnVerificarNumero)
-                .addGap(17, 17, 17)
-                .addComponent(btnSalir)
-                .addGap(17, 17, 17)
-                .addComponent(btnReiniciar))
-        );
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/FondoJTorre.png"))); // NOI18N
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 350));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -235,6 +175,7 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
     private javax.swing.JButton btnVerificarNumero;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel lbNumero1;
     private javax.swing.JLabel lbNumero2;
     private javax.swing.JLabel lbNumero3;

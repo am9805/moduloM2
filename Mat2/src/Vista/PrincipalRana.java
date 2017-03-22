@@ -11,7 +11,7 @@ import javax.swing.TransferHandler;
 
 /**
  * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
+ * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
  */
 public class PrincipalRana extends javax.swing.JFrame {
@@ -224,7 +224,6 @@ public class PrincipalRana extends javax.swing.JFrame {
         getContentPane().add(lblCronometro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 250, 110));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondito2.jpg"))); // NOI18N
-        jLabel1.setText("jLabel1");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         pack();
