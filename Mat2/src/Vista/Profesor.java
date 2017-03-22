@@ -12,6 +12,7 @@ public class Profesor extends javax.swing.JFrame {
         setLocationRelativeTo(null);
         p3.setVisible(false);
         p2.setVisible(false);
+//        ranaRB.setVisible(false);
         ctrlE = new ControladorEstadistica();
     }
 
@@ -143,16 +144,25 @@ public class Profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_radioBEstudianteActionPerformed
 
     private void ranaRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ranaRBActionPerformed
-        // TODO add your handling code here:
+        torreRB.setSelected(false);
     }//GEN-LAST:event_ranaRBActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
         if (torreRB.isSelected() == true) {
 //            ctrlE = new ControladorEstadistica();
             txtArea.setText("");
+
             ArrayList<String> arry = new ArrayList<String>();
             arry = ctrlE.mostrarDatosTorre();
-            txtArea.append("Nombre            Apellidos           Fallas Unidades            Fallas Decenas              Falla Centenas               Último Nivel");
+            txtArea.append("Nombre            Apellidos           Fallas Unidades            Fallas Decenas              Falla Centenas               Último Nivel" + "\n");
+            for (int i = 0; i < arry.size(); i++) {
+                txtArea.append(arry.get(i) + "\n");
+            }
+        } else if (ranaRB.isSelected() == true) {
+            txtArea.setText("");
+            ArrayList<String> arry = new ArrayList<String>();
+            arry = ctrlE.mostrarDatosRana();
+            txtArea.append("Nombre            Apellidos           Fallas Ascendente            Fallas Descendente    " + "\n");
             for (int i = 0; i < arry.size(); i++) {
                 txtArea.append(arry.get(i) + "\n");
             }
@@ -161,7 +171,7 @@ public class Profesor extends javax.swing.JFrame {
                 txtArea.setText("");
                 ArrayList<String> arry = new ArrayList<String>();
                 arry = ctrlE.mostrarDatosXestudiante(idBus.toString());
-                txtArea.append("N A   NJ     FU   FDece    FC    ÚN   NJ   FA   FDescen");
+                txtArea.append("N A   NJ     FU   FDece    FC    ÚN   NJ   FA   FDescen" + "\n");
                 for (int i = 0; i < arry.size(); i++) {
                     txtArea.append(arry.get(i) + "\n");
                 }
@@ -173,7 +183,8 @@ public class Profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_consultarActionPerformed
 
     private void torreRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_torreRBActionPerformed
-        // TODO add your handling code here:
+        ranaRB.setSelected(false);
+
     }//GEN-LAST:event_torreRBActionPerformed
 
 

@@ -6,7 +6,7 @@
 package Controlador;
 
 import Modelo.EstadisticaRana;
-import Modelo.EstadisticaRanaDao;
+import Modelo.EstadisticaRanaDAO;
 import Modelo.SingletonEstudianteActivo;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -26,7 +26,7 @@ public class ControladorRana {
     EstadisticaRana estadisticaRana = new EstadisticaRana("FROGGIE", fecha, SingletonEstudianteActivo.getInstance().getIdEstudiante());
      
      public void llenarTabla() {
-        EstadisticaRanaDao a = new EstadisticaRanaDao();
+        EstadisticaRanaDAO a = new EstadisticaRanaDAO();
         
         a.AgregarEstadisticaR(estadisticaRana);
     }

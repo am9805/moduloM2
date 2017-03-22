@@ -1,6 +1,7 @@
 
 package Controlador;
 
+import Modelo.EstadisticaRanaDAO;
 import Modelo.EstadisticaTorreDAO;
 import Modelo.EstudianteDAO;
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.ArrayList;
  */
 public class ControladorEstadistica {
     private EstadisticaTorreDAO esToDAO;
+    private EstadisticaRanaDAO esRaDAO;
     private EstudianteDAO estuDAO;
     
     public ArrayList<String> mostrarDatosTorre(){
@@ -28,6 +30,12 @@ public class ControladorEstadistica {
      public ArrayList<String> mostrarDatosXestudiante(String id_estudiante){
         estuDAO = new EstudianteDAO();
         ArrayList<String> r = estuDAO.informacionXestudiante(id_estudiante);
+        return r;
+    }
+     
+      public ArrayList<String> mostrarDatosRana(){
+        esRaDAO = new EstadisticaRanaDAO();
+        ArrayList<String> r = esRaDAO.informaciónRana();
         return r;
     }
     

@@ -66,9 +66,15 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        getContentPane().add(lbNumero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 30, 50, 20));
-        getContentPane().add(lbNumero2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 80, 50, 20));
-        getContentPane().add(lbNumero3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 80, 50, 20));
+
+        lbNumero1.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        getContentPane().add(lbNumero1, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 60, 80, 60));
+
+        lbNumero2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        getContentPane().add(lbNumero2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, 80, 50));
+
+        lbNumero3.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        getContentPane().add(lbNumero3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 80, 80, 50));
 
         btnSalir.setText("Salir del juego");
         btnSalir.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +82,7 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
                 btnSalirActionPerformed(evt);
             }
         });
-        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 240, 150, -1));
+        getContentPane().add(btnSalir, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 150, -1));
 
         btnVerificarNumero.setText("Verificar Número");
         btnVerificarNumero.addActionListener(new java.awt.event.ActionListener() {
@@ -84,22 +90,28 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
                 btnVerificarNumeroActionPerformed(evt);
             }
         });
-        getContentPane().add(btnVerificarNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 200, -1, -1));
-        getContentPane().add(txtFCentenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 149, 70, -1));
-        getContentPane().add(txtFDecenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 149, 70, -1));
-        getContentPane().add(txtFUnidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 149, 70, -1));
+        getContentPane().add(btnVerificarNumero, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 240, -1, -1));
+
+        txtFCentenas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        getContentPane().add(txtFCentenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 150, 90, 50));
+
+        txtFDecenas.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        getContentPane().add(txtFDecenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 150, 90, 50));
+
+        txtFUnidades.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        getContentPane().add(txtFUnidades, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 150, 90, 50));
 
         jLabel2.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel2.setText("Unidades.");
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(206, 130, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 130, -1, -1));
 
         jLabel1.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel1.setText("Decenas.");
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(126, 130, 70, -1));
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 130, 70, -1));
 
         Centenas.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         Centenas.setText("Centenas.");
-        getContentPane().add(Centenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 130, -1, -1));
+        getContentPane().add(Centenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
         btnReiniciar.setText("Reiniciar");
         btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
@@ -107,10 +119,10 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
                 btnReiniciarActionPerformed(evt);
             }
         });
-        getContentPane().add(btnReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 280, 100, -1));
+        getContentPane().add(btnReiniciar, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 320, 100, -1));
 
         jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/FondoJTorre.png"))); // NOI18N
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 300, 350));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 420));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
