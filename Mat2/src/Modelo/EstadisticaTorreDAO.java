@@ -1,4 +1,5 @@
 package Modelo;
+
 /**
  * @author Santiago Bedoya Betancur
  * @author Angelica Arroyame Mendoza
@@ -8,14 +9,16 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.ArrayList;
 
 public class EstadisticaTorreDAO {
+
     PreparedStatement ps = null;
     ResultSet rs = null;
     Connection conn = null;
     ConexionBD conexion = null;
     static Statement sentencia;
-    
+
     public boolean AgregarEstadisticaT(EstadisticaTorre es) {
 
         try {
@@ -42,58 +45,41 @@ public class EstadisticaTorreDAO {
         }
         return true;
     }
-    
-     public boolean validarUsuario(String nombre, String id_estudiante) {      
-        boolean r = false;
-        String q = "SELECT nombre,id_estudiante FROM estudiante WHERE nombre='"+nombre+"'AND id_estudiante='" + id_estudiante + "'";
-        try {
-            conn = conexion.getConexion();
-            ps = conn.prepareStatement(q);
-            rs = ps.executeQuery();
-            while(rs.next()){
-                System.out.println(rs.getObject(1));
-            }
-            System.out.println("Correcto");
-            
-        } catch (Exception e) {
-            System.out.println(" No Correcto");
-        }
-        r= asignar();
-        return r;
-                
-    
-    }
-     
-      public  boolean asignar(){
-      boolean r = false;
-        try {
-            if(rs.last()){
-                
-                r=true;
-            }
-        } catch (Exception e) {
-        }
-      
-      return r;
-                
-    }
-      
-      public String traerId(String nombre, String id_estudiante){
+
+    public ArrayList<String> informaciónTorre() {
+        ArrayList<String> r = null;
         String s = "";
-        String q = "SELECT id_estudiante FROM estudiante WHERE nombre='"+nombre+"'AND id_estudiante='" + id_estudiante + "'";
+        String q = "SELECT  T.nombre, T.apellidos, O.erroresUnidades, O.erroresDecenas, O.erroresCentenas, O.nivelAlcanzado FROM estudiante T, estadisticaTorre O WHERE T.id_estudiante = O.id_estudiante";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
-            while(rs.next()){
-                s= rs.getObject(2).toString();
+            while (rs.next()) {
+                
+                    s.concat(rs.getObject(1).toString()+" "+rs.getObject(2).toString()+" "+rs.getObject(3).toString()+" "+rs.getObject(4).toString()+" "+rs.getObject(5).toString()+" "+rs.getObject(6).toString());
+                    r.add(s); 
+                System.out.println(s);
             }
             System.out.println("Correcto");
-            
+
         } catch (Exception e) {
             System.out.println(" No Correcto");
         }
-        
-        return s;
-      }
+        return r;
+
+    }
+
+    public boolean asignar() {
+        boolean r = false;
+        try {
+            if (rs.last()) {
+
+                r = true;
+            }
+        } catch (Exception e) {
+        }
+
+        return r;
+
+    }
 }
