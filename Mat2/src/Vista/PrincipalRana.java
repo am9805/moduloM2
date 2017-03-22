@@ -1,5 +1,6 @@
 package Vista;
 
+import Controlador.ControladorCronometro;
 import Controlador.ControladorGenerarNumero;
 import Controlador.ControladorOrdenar;
 import java.awt.event.MouseAdapter;
@@ -30,7 +31,7 @@ public class PrincipalRana extends javax.swing.JFrame {
         ro2.setVisible(false);
         ro3.setVisible(false);
         ro4.setVisible(false);
-//        lblCronometro.setText("0:0:0");
+        lblCronometro.setText("0:0:0");
 
     }
 
@@ -64,6 +65,7 @@ public class PrincipalRana extends javax.swing.JFrame {
     private void initComponents() {
 
         RanaxRocaL = new javax.swing.JLabel();
+        lblCronometro = new javax.swing.JLabel();
         ro1 = new javax.swing.JLabel();
         ro2 = new javax.swing.JLabel();
         ro3 = new javax.swing.JLabel();
@@ -90,7 +92,6 @@ public class PrincipalRana extends javax.swing.JFrame {
         texto2 = new javax.swing.JLabel();
         texto3 = new javax.swing.JLabel();
         texto4 = new javax.swing.JLabel();
-        lblCronometro = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -100,6 +101,10 @@ public class PrincipalRana extends javax.swing.JFrame {
 
         RanaxRocaL.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/RanaxRoca.png"))); // NOI18N
         getContentPane().add(RanaxRocaL, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 640, 180, 160));
+
+        lblCronometro.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
+        lblCronometro.setForeground(new java.awt.Color(255, 255, 255));
+        getContentPane().add(lblCronometro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 250, 110));
 
         ro1.setFont(new java.awt.Font("DejaVu Sans", 1, 24)); // NOI18N
         ro1.setForeground(new java.awt.Color(1, 1, 1));
@@ -219,10 +224,6 @@ public class PrincipalRana extends javax.swing.JFrame {
         texto4.setText("HAS CLIC AQUI PARA QUE  ");
         getContentPane().add(texto4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 340, -1, -1));
 
-        lblCronometro.setFont(new java.awt.Font("Snap ITC", 1, 24)); // NOI18N
-        lblCronometro.setForeground(new java.awt.Color(255, 255, 255));
-        getContentPane().add(lblCronometro, new org.netbeans.lib.awtextra.AbsoluteConstraints(1110, 50, 250, 110));
-
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/Fondito2.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
@@ -235,20 +236,21 @@ public class PrincipalRana extends javax.swing.JFrame {
         ro2.setText("");
         ro3.setText("");
         ro4.setText("");
-//       lblCronometro.setVisible(true);
+          lblCronometro.setVisible(true);
         crono = true;
 
         Gif.setVisible(false);
 
         RanaxRocaL.setVisible(true);
         Roca1.setVisible(true);
+        ro1.setVisible(true);
         Roca2.setVisible(false);
         Roca3.setVisible(false);
         Roca4.setVisible(false);
 
-//        ControladorCronometro c = new ControladorCronometro(lblCronometro, Roca1, Roca2, Roca3, Roca4, ro1, ro2, ro3, ro4, num1, num2, num3, num4,jugar, crono); //Intancio la clase         
-//        c.start();
-//
+        ControladorCronometro c = new ControladorCronometro(lblCronometro, Roca1, Roca2, Roca3, Roca4, ro1, ro2, ro3, ro4, num1, num2, num3, num4,jugar, crono); //Intancio la clase         
+        c.start();
+
         ControladorGenerarNumero generar = ControladorGenerarNumero.getInstance();
         generar.generadorNumeros(num1, num2, num3, num4, forden);
 

@@ -48,9 +48,11 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
     //INICIO DEL CRONOMETRO  
     public void run() {
         hilo.setText("00:00:00");
+        
         try {
-
+           
             for (;;) {
+                if("".equals(ro1.getText()) || "".equals(ro2.getText()) || "".equals(ro3.getText()) || "".equals(ro4.getText())){
                 if (segundos == 59) {
                     segundos = 0;
                     minutos++;
@@ -64,7 +66,7 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
                 hilo.setText(horas + ":" + minutos + ":" + segundos);
 
                 Thread.sleep(1000);
-
+                }
                 if ((horas == 00 && minutos == 01 && segundos == 00)) {
                     hilo.setText("0:0:0");
                     System.out.println("Erroor");
@@ -85,16 +87,22 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
                     break;
 
                 }
-
-                if (jugamos.getVisibleRect().equals(true)) {
+            
+                if (!"".equals(ro1.getText()) && !"".equals(ro2.getText()) && !"".equals(ro3.getText()) &&!"".equals(ro4.getText())) {
                     hilo.setText("0:0:0");
-                    break;
+                    stop();
 
                 }
 
             }
+        
         } catch (InterruptedException e) {
             System.out.println(e.getMessage());
         }
+        
+    }
+    
+    public void terminar(  ){
+        this.stop();
     }
 }

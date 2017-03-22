@@ -148,38 +148,38 @@ public class Profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_ranaRBActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-        if (torreRB.isSelected() == true) {
-//            ctrlE = new ControladorEstadistica();
-            txtArea.setText("");
-
-            ArrayList<String> arry = new ArrayList<String>();
-            arry = ctrlE.mostrarDatosTorre();
-            txtArea.append("Nombre            Apellidos           Fallas Unidades            Fallas Decenas              Falla Centenas               Último Nivel" + "\n");
-            for (int i = 0; i < arry.size(); i++) {
-                txtArea.append(arry.get(i) + "\n");
-            }
-        } else if (ranaRB.isSelected() == true) {
-            txtArea.setText("");
-            ArrayList<String> arry = new ArrayList<String>();
-            arry = ctrlE.mostrarDatosRana();
-            txtArea.append("Nombre            Apellidos           Fallas Ascendente            Fallas Descendente    " + "\n");
-            for (int i = 0; i < arry.size(); i++) {
-                txtArea.append(arry.get(i) + "\n");
-            }
-        } else if (radioBEstudiante.isSelected()) {
-            if (!idBus.toString().isEmpty()) {
-                txtArea.setText("");
-                ArrayList<String> arry = new ArrayList<String>();
-                arry = ctrlE.mostrarDatosXestudiante(idBus.toString());
-                txtArea.append("N A   NJ     FU   FDece    FC    ÚN   NJ   FA   FDescen" + "\n");
-                for (int i = 0; i < arry.size(); i++) {
-                    txtArea.append(arry.get(i) + "\n");
-                }
-
-            } else {
-
-            }
-        }
+//        if (torreRB.isSelected() == true) {
+////            ctrlE = new ControladorEstadistica();
+//            txtArea.setText("");
+//
+//            ArrayList<String> arry = new ArrayList<String>();
+//            arry = ctrlE.mostrarDatosTorre();
+//            txtArea.append("Nombre            Apellidos           Fallas Unidades            Fallas Decenas              Falla Centenas               Último Nivel" + "\n");
+//            for (int i = 0; i < arry.size(); i++) {
+//                txtArea.append(arry.get(i) + "\n");
+//            }
+//        } else if (ranaRB.isSelected() == true) {
+//            txtArea.setText("");
+//            ArrayList<String> arry = new ArrayList<String>();
+//            arry = ctrlE.mostrarDatosRana();
+//            txtArea.append("Nombre            Apellidos           Fallas Ascendente            Fallas Descendente    " + "\n");
+//            for (int i = 0; i < arry.size(); i++) {
+//                txtArea.append(arry.get(i) + "\n");
+//            }
+//        } else if (radioBEstudiante.isSelected()) {
+//            if (!idBus.toString().isEmpty()) {
+//                txtArea.setText("");
+//                ArrayList<String> arry = new ArrayList<String>();
+//                arry = ctrlE.mostrarDatosXestudiante(idBus.toString());
+//                txtArea.append("N A   NJ     FU   FDece    FC    ÚN   NJ   FA   FDescen" + "\n");
+//                for (int i = 0; i < arry.size(); i++) {
+//                    txtArea.append(arry.get(i) + "\n");
+//                }
+//
+//            } else {
+//
+//            }
+//        }
     }//GEN-LAST:event_consultarActionPerformed
 
     private void torreRBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_torreRBActionPerformed
