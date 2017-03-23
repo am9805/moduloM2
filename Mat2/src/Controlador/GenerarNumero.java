@@ -24,8 +24,8 @@ public class GenerarNumero {//CLASE CONTEXTO
 
     //METODO QUE INVOCA LOS METODOS DE LA INTERFACE
 
-    public void GenerarNum(JLabel a, JLabel b, JLabel c, JLabel d, JLabel e) {
-        Generar.GenerarNumero(a, b, c, d, e);
+    public void GenerarNum(JLabel numNube1, JLabel numNube2, JLabel numNube3, JLabel numNube4, JLabel orden) {
+        Generar.GenerarNumero(numNube1, numNube2, numNube3, numNube4, orden);
     }
 
 }

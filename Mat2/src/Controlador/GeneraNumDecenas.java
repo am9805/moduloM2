@@ -15,7 +15,7 @@ public class GeneraNumDecenas implements IGenerarNumeroStrategy {
     @Override
 
     //METODO QUE GENERA NUMEROS ALEATORIOS DE 10 EN  10
-    public void GenerarNumero(JLabel a, JLabel b, JLabel c, JLabel d, JLabel e) {
+    public void GenerarNumero(JLabel numNube1, JLabel numNube2, JLabel numNube3, JLabel numNube4, JLabel orden) {
 
         int i = 0, cantidad = 4;
         int arreglo[] = new int[cantidad];
@@ -37,15 +37,15 @@ public class GeneraNumDecenas implements IGenerarNumeroStrategy {
             System.out.print((k + 1) + ".- " + arreglo[k] + "\n");
         }
 
-        a.setText(Integer.toString(arreglo[0]));
-        b.setText(Integer.toString(arreglo[1]));
-        c.setText(Integer.toString(arreglo[2]));
-        d.setText(Integer.toString(arreglo[3]));
+        numNube1.setText(Integer.toString(arreglo[0]));
+        numNube2.setText(Integer.toString(arreglo[1]));
+        numNube3.setText(Integer.toString(arreglo[2]));
+        numNube4.setText(Integer.toString(arreglo[3]));
         int numero2 = (ThreadLocalRandom.current().nextInt(1, 2 + 1));
         if (numero2 == 2) {
-            e.setText("Menor a Mayor");
+            orden.setText("Menor a Mayor");
         } else {
-            e.setText("Mayor a Menor");
+            orden.setText("Mayor a Menor");
         }
     }
 

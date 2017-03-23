@@ -9,6 +9,6 @@ import javax.swing.JLabel;
  */
 public interface IGenerarNumeroStrategy {
 
-    void GenerarNumero(JLabel a, JLabel b, JLabel c, JLabel d, JLabel e);
+    void GenerarNumero(JLabel numNube1, JLabel numNube2, JLabel numNube3, JLabel numNube4, JLabel orden5);
 
 }

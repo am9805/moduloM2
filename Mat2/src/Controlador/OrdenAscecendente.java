@@ -55,7 +55,7 @@ public class OrdenAscecendente implements IOrdenarStrategy {
 
             } else {
                 numRoc1.setText("");
-                JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intentar");
+                JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intentar, TU PUEDES....!!");
                 EstadisticaRana.setErrorAscendente(EstadisticaRana.getErrorAscendente() + 1);
             }
         }
@@ -68,7 +68,7 @@ public class OrdenAscecendente implements IOrdenarStrategy {
 
             } else {
                 numRoc2.setText("");
-                JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intentar");
+                JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intentar, TU PUEDES....!!");
                 EstadisticaRana.setErrorAscendente(EstadisticaRana.getErrorAscendente() + 1);
             }
         }
@@ -81,7 +81,7 @@ public class OrdenAscecendente implements IOrdenarStrategy {
 
             } else {
                 numRoc3.setText("");
-                JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intenntar");
+                JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intenntar, TU PUEDES....!!");
                 EstadisticaRana.setErrorAscendente(EstadisticaRana.getErrorAscendente() + 1);
             }
         }
@@ -92,7 +92,7 @@ public class OrdenAscecendente implements IOrdenarStrategy {
             if (arreglo[3] == numroc4) {
                 ControladorRana a = new ControladorRana(EstadisticaRana);
                 a.llenarTabla();
-                JOptionPane.showMessageDialog(null, "GANASTE");
+                JOptionPane.showMessageDialog(null, "FELICITACIONES HAS GANADO......!!!!");
                 Gif.setVisible(true);
                 numRoc1.setVisible(false);
                 numRoc2.setVisible(false);
@@ -109,7 +109,7 @@ public class OrdenAscecendente implements IOrdenarStrategy {
 
             } else {
                 numRoc4.setText("");
-                JOptionPane.showMessageDialog(null, "Te has equivocao, vuelve a intentar");
+                JOptionPane.showMessageDialog(null, "Te has equivocao, vuelve a intentar, TU PUEDES....!!");
                 EstadisticaRana.setErrorAscendente(EstadisticaRana.getErrorAscendente() + 1);
             }
         }

@@ -23,21 +23,21 @@ public class GeneradorFactory {
     }
 
     //METODO QUE GENERA LOS NUMEORS DE  ACUERDO A LA ESTRATEGIA 
-    public void GenerarNumero(JLabel a, JLabel b, JLabel c, JLabel d, JLabel e) {
+    public void GenerarNumero(JLabel numNube1, JLabel numNube2, JLabel numNube3, JLabel numNube4, JLabel orden) {
         int x = (ThreadLocalRandom.current().nextInt(1, 3 + 1));
 
         if (x == 1) {
             GenerarNumero gn = new GenerarNumero(new GeneraNumDecenas());
-            gn.GenerarNum(a, b, c, d, e);
+            gn.GenerarNum(numNube1, numNube2, numNube3, numNube4, orden);
         }
 
         if (x == 2) {
             GenerarNumero gn = new GenerarNumero(new GeneraNumSecuencial());
-            gn.GenerarNum(a, b, c, d, e);
+            gn.GenerarNum(numNube1, numNube2, numNube3, numNube4, orden);
         }
         if (x == 3) {
             GenerarNumero gn = new GenerarNumero(new GeneraNumSinRestriccion());
-            gn.GenerarNum(a, b, c, d, e);
+            gn.GenerarNum(numNube1, numNube2, numNube3, numNube4, orden);
         }
 
     }
