@@ -177,11 +177,16 @@ public class Profesor extends javax.swing.JFrame {
             if (!idBus.toString().isEmpty()) {
                 txtArea.setText("");
                 ArrayList<String> arry = new ArrayList<String>();
-                arry = ctrlE.mostrarDatosXestudiante(idBus.toString());
+                arry = ctrlE.mostrarDatosXestudianteT(idBus.toString());
                 txtArea.append("N A   NJ     FU   FDece    FC    UN   NJ   FA   FDescen" + "\n");
                 for (int i = 0; i < arry.size(); i++) {
                     txtArea.append(arry.get(i) + "\n");
                 }
+//                txtArea.append("   NJ   FA   FDescen" + "\n");
+//                arry = ctrlE.mostrarDatosXestudianteR(idBus.toString());
+//                for (int i = 0; i < arry.size(); i++) {
+//                    txtArea.append(arry.get(i) + "\n");
+//                }
 
             } else {
 

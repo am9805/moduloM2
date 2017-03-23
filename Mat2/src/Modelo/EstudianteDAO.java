@@ -136,12 +136,13 @@ public class EstudianteDAO {
         String q = "SELECT  E.nombre, E.apellidos, T.nombreJuego, T.erroresUnidades, T.erroresDecenas, T.erroresCentenas, T.nivelAlcanzado FROM estudiante E INNER JOIN estadisticaTorre T ON E.id_estudiante = T.id_estudiante WHERE E.id_estudiante = '"+id_estudiante+"'";
         try {
             conn = conexion.getConexion();
-            ps = conn.prepareStatement(q);
+            ps = conn.prepareStatement("SELECT  E.nombre, T.nombreJuego FROM estudiante E INNER JOIN estadisticaTorre T ON E.id_estudiante = T.id_estudiante WHERE E.id_estudiante = '"+id_estudiante+"'");
             rs = ps.executeQuery();
-            while (rs.next()) {
-                
-                String a = (rs.getObject(1) +espa+rs.getObject(2)+espa+ rs.getObject(3) +espa+rs.getObject(4)+espa+ rs.getObject(5)+espa+rs.getObject(6)+espa+ rs.getObject(7) +espa+rs.getObject(8)+espa+ rs.getObject(9)+espa+rs.getObject(10)).toString();
-                System.out.println(a);
+            
+            while (rs.next()) { 
+                  String b = (rs.getString("nombre")+rs.getString("nombreJuego"));
+                String a = (rs.getString("nombre") +espa+rs.getString("apellidos")+espa+ rs.getString("nombreJuego") +espa+rs.getString("erroresUnidades")+espa+ rs.getString("erroresDecenas")+espa+rs.getString("erroresCentenas")+espa+ rs.getString("erroresCentenas") +espa+rs.getString("nivelAlcanzado"));
+                System.out.println(b);
                 r.add(a);
             }
 
@@ -152,19 +153,20 @@ public class EstudianteDAO {
     public ArrayList<String> informacionXestudianteR(String id_estudiante) {
        ArrayList<String> r = new ArrayList<String>();
         String espa= "     ";
-        String q = "SELECT  * FROM estudiante INNER JOIN estadisticaRana ON estudiante.id_estudiante = estadisticaRana.id_estudiante WHERE estudiante.id_estudiante = '"+id_estudiante+"'";
+        String q = "SELECT R.nombreJuego, R.errorAscendente, R.errorDescendente  FROM estudiante E INNER JOIN estadisticaRana R ON E.id_estudiante = R.id_estudiante WHERE E.id_estudiante = '"+id_estudiante+"'";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
             while (rs.next()) {
                 
-                String a = (rs.getObject(1) +espa+rs.getObject(2)+espa+ rs.getObject(3) +espa+rs.getObject(4)+espa+ rs.getObject(5)+espa+rs.getObject(6)+espa+ rs.getObject(7) +espa+rs.getObject(8)+espa+ rs.getObject(9)+espa+rs.getObject(10)).toString();
+                String a = (rs.getString("nombreJuego") +espa+rs.getString("errorAscendente")+espa+ rs.getString("errorDescendente"));
                 System.out.println(a);
                 r.add(a);
             }
 
         } catch (Exception e) {
+            e.printStackTrace();
         }
         return r;
     }

@@ -56,16 +56,23 @@ public class ControladorEstadistica {
      *
      * @return
      */
-    public ArrayList<String> mostrarDatosXestudiante(String id_estudiante) {
-        ArrayList<String> a = new ArrayList<String>();
+    public ArrayList<String> mostrarDatosXestudianteT(String id_estudiante) {
+       
         estuDAO = new EstudianteDAO();
         ArrayList<String> t = estuDAO.informacionXestudianteT(id_estudiante);
-        ArrayList<String> r = estuDAO.informacionXestudianteR(id_estudiante);
         
-        a= unificarArrays(t,r);
         return t;
     }
-
+    
+    public ArrayList<String> mostrarDatosXestudianteR(String id_estudiante) {
+        ArrayList<String> a = new ArrayList<String>();
+        estuDAO = new EstudianteDAO();
+        ArrayList<String> r = estuDAO.informacionXestudianteR(id_estudiante);
+        
+        return r;
+    }
+    
+    
     public ArrayList<String> unificarArrays(ArrayList<String> t, ArrayList<String> r) {
         ArrayList<String> a = new ArrayList<String>();
 
