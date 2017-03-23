@@ -43,9 +43,7 @@ public class Profesor extends javax.swing.JFrame {
         fondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(730, 480));
         setMinimumSize(new java.awt.Dimension(730, 480));
-        setPreferredSize(new java.awt.Dimension(730, 480));
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -170,7 +168,7 @@ public class Profesor extends javax.swing.JFrame {
         } else if (ranaRB.isSelected() == true) {
             txtArea.setText("");
             ArrayList<String> arry = new ArrayList<String>();
-//            arry = ctrlE.mostrarDatosRana();
+            arry = ctrlE.mostrarDatosRana();
             txtArea.append("Nombre            Apellidos           Fallas Ascendente            Fallas Descendente    " + "\n");
             for (int i = 0; i < arry.size(); i++) {
                 txtArea.append(arry.get(i) + "\n");
@@ -180,7 +178,7 @@ public class Profesor extends javax.swing.JFrame {
                 txtArea.setText("");
                 ArrayList<String> arry = new ArrayList<String>();
                 arry = ctrlE.mostrarDatosXestudiante(idBus.toString());
-                txtArea.append("N A   NJ     FU   FDece    FC    ÚN   NJ   FA   FDescen" + "\n");
+                txtArea.append("N A   NJ     FU   FDece    FC    UN   NJ   FA   FDescen" + "\n");
                 for (int i = 0; i < arry.size(); i++) {
                     txtArea.append(arry.get(i) + "\n");
                 }

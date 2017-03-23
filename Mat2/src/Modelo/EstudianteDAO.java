@@ -130,10 +130,29 @@ public class EstudianteDAO {
      * junto con sus respectivos datos de la tabla "estadisticaTorre" y "estadisticaRana".
      * @return 
      */
-    public ArrayList<String> informacionXestudiante(String id_estudiante) {
+    public ArrayList<String> informacionXestudianteT(String id_estudiante) {
        ArrayList<String> r = new ArrayList<String>();
         String espa= "     ";
-        String q = "SELECT  T.nombre, T.apellidos, O.nombreJuego ,O.erroresUnidades, O.erroresDecenas, O.erroresCentenas, O.nivelAlcanzado, R.nombreJuego, R.errorAscendente, R.errorDescendente FROM estudiante T, estadisticaTorre O, estadisticaRana R WHERE T.id_estudiante='"+id_estudiante+"' AND T.id_estudiante = O.id_estudiante = R.id_estudiante";
+        String q = "SELECT  E.nombre, E.apellidos, T.nombreJuego, T.erroresUnidades, T.erroresDecenas, T.erroresCentenas, T.nivelAlcanzado FROM estudiante E INNER JOIN estadisticaTorre T ON E.id_estudiante = T.id_estudiante WHERE E.id_estudiante = '"+id_estudiante+"'";
+        try {
+            conn = conexion.getConexion();
+            ps = conn.prepareStatement(q);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                
+                String a = (rs.getObject(1) +espa+rs.getObject(2)+espa+ rs.getObject(3) +espa+rs.getObject(4)+espa+ rs.getObject(5)+espa+rs.getObject(6)+espa+ rs.getObject(7) +espa+rs.getObject(8)+espa+ rs.getObject(9)+espa+rs.getObject(10)).toString();
+                System.out.println(a);
+                r.add(a);
+            }
+
+        } catch (Exception e) {
+        }
+        return r;
+    }
+    public ArrayList<String> informacionXestudianteR(String id_estudiante) {
+       ArrayList<String> r = new ArrayList<String>();
+        String espa= "     ";
+        String q = "SELECT  * FROM estudiante INNER JOIN estadisticaRana ON estudiante.id_estudiante = estadisticaRana.id_estudiante WHERE estudiante.id_estudiante = '"+id_estudiante+"'";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
