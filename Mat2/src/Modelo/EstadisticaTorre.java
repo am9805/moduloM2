@@ -1,6 +1,7 @@
 package Modelo;
+
 /**
- * 
+ *
  *
  *
  * @author Santiago Bedoya Betancur

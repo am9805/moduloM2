@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.EstadisticaRana;
 import Modelo.OrdenadorFactory;
 import javax.swing.JLabel;
 
@@ -13,6 +14,7 @@ public class ControladorOrdenar {
 
     //SINGLETON PARA CONTROLADOR
     private static ControladorOrdenar ConOrdenar;
+    private EstadisticaRana a;
 
     public static ControladorOrdenar getInstance() {
         ConOrdenar = new ControladorOrdenar();

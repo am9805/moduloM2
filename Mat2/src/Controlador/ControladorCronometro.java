@@ -20,7 +20,7 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
     }
 
     ///CONSTRUCTOR DEL CRONOMETRO
-    public ControladorCronometro(JLabel hilo, JLabel Roca1, JLabel Roca2, JLabel Roca3, JLabel Roca4, JLabel ro1, JLabel ro2, JLabel ro3, JLabel ro4, JLabel num1, JLabel num2, JLabel num3, JLabel num4, JLabel jugamos, boolean crono) {
+    public ControladorCronometro(JLabel hilo, JLabel Roca1, JLabel Roca2, JLabel Roca3, JLabel Roca4, JLabel ro1, JLabel ro2, JLabel ro3, JLabel ro4, JLabel num1, JLabel num2, JLabel num3, JLabel num4, JLabel jugamos) {
         this.hilo = hilo;
         this.Roca1 = Roca1;
         this.Roca2 = Roca2;
@@ -67,7 +67,7 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
 
                 Thread.sleep(1000);
                 }
-                if ((horas == 00 && minutos == 01 && segundos == 00)) {
+                if ((horas == 00 && minutos == 01 && segundos == 01)) {
                     hilo.setText("0:0:0");
                     System.out.println("Erroor");
                     Roca1.setVisible(false);

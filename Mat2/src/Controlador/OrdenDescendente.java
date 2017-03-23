@@ -1,5 +1,6 @@
 package Controlador;
 
+import Modelo.EstadisticaRanaDAO;
 import Modelo.IOrdenarStrategy;
 import java.util.Arrays;
 import javax.swing.JLabel;
@@ -87,7 +88,9 @@ public class OrdenDescendente implements IOrdenarStrategy {
         if (!"".equals(roc4)) {
             int numroc4 = Integer.parseInt(roc4);
             if (arreglo[0] == numroc4) {
-
+                
+                ControladorRana a = new ControladorRana(EstadisticaRana);
+                a.llenarTabla();
                 JOptionPane.showMessageDialog(null, "GANASTE");
                 RanaxRocaL.setVisible(false);
                 Gif.setVisible(true);
@@ -109,9 +112,9 @@ public class OrdenDescendente implements IOrdenarStrategy {
                 numRoc4.setText("");
                 JOptionPane.showMessageDialog(null, "Te has equivocado, vuelve a intentar");
                 EstadisticaRana.setErrorDescendente(EstadisticaRana.getErrorDescendente() + 1);
-//          
-            }
 
+            }
+            
         }
 
     }

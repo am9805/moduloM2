@@ -14,6 +14,10 @@ public class OrdenarNumero {
     private JLabel ordenNumerico;
     private IOrdenarStrategy orden;
 
+    public IOrdenarStrategy getOrden() {
+        return orden;
+    }
+
     //CONTRUCTORES DIVERSOS 
     public OrdenarNumero(IOrdenarStrategy orden) {
         this.orden = orden;
@@ -25,6 +29,26 @@ public class OrdenarNumero {
     public OrdenarNumero(JLabel ordenNumerico) {
         this.ordenNumerico = ordenNumerico;
     }
+    
+    /**
+     * 
+     * @param roca1
+     * @param roca2
+     * @param roca3
+     * @param roca4
+     * @param numRoc1
+     * @param numRoc2
+     * @param numRoc3
+     * @param numRoc4
+     * @param nube1
+     * @param nube2
+     * @param nube3
+     * @param nube4
+     * @param Gif
+     * @param RanaxRocaL
+     * @param juguemos
+     * @param Cronometro 
+     */
 
     // METODO QUE INVOCA LA INTERFAZ DE ORDENAMIENTO E INVOCA LOS METODOS DE DICHA INTERFAZ
     public void ordenarNum(JLabel roca1, JLabel roca2, JLabel roca3, JLabel roca4,

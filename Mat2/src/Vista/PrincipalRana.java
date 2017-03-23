@@ -3,6 +3,9 @@ package Vista;
 import Controlador.ControladorCronometro;
 import Controlador.ControladorGenerarNumero;
 import Controlador.ControladorOrdenar;
+import Controlador.ControladorRana;
+import Modelo.IOrdenarStrategy;
+import static Modelo.IOrdenarStrategy.EstadisticaRana;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
@@ -18,7 +21,7 @@ import javax.swing.TransferHandler;
 public class PrincipalRana extends javax.swing.JFrame {
 
     int numeroEntradas = 1;
-    boolean crono;
+    private IOrdenarStrategy a;
 
     public PrincipalRana() {
         initComponents();
@@ -247,8 +250,7 @@ public class PrincipalRana extends javax.swing.JFrame {
         ro2.setText("");
         ro3.setText("");
         ro4.setText("");
-          lblCronometro.setVisible(true);
-        crono = true;
+        lblCronometro.setVisible(true);
 
         Gif.setVisible(false);
 
@@ -259,12 +261,11 @@ public class PrincipalRana extends javax.swing.JFrame {
         Roca3.setVisible(false);
         Roca4.setVisible(false);
 
-        ControladorCronometro c = new ControladorCronometro(lblCronometro, Roca1, Roca2, Roca3, Roca4, ro1, ro2, ro3, ro4, num1, num2, num3, num4,jugar, crono); //Intancio la clase         
+        ControladorCronometro c = new ControladorCronometro(lblCronometro, Roca1, Roca2, Roca3, Roca4, ro1, ro2, ro3, ro4, num1, num2, num3, num4, jugar); //Intancio la clase         
         c.start();
 
         ControladorGenerarNumero generar = ControladorGenerarNumero.getInstance();
         generar.generadorNumeros(num1, num2, num3, num4, forden);
-
         transferirTexto(num1, ro1);
         transferirTexto(num2, ro2);
         transferirTexto(num3, ro3);
@@ -277,19 +278,19 @@ public class PrincipalRana extends javax.swing.JFrame {
     }//GEN-LAST:event_jugarMouseClicked
 
     private void avanzarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_avanzarMouseClicked
-
         ControladorOrdenar ordenar = ControladorOrdenar.getInstance();
         ordenar.OrdenarNumeros(forden, Roca1, Roca2, Roca3, Roca4, ro1, ro2, ro3, ro4, num1, num2, num3, num4, Gif, RanaxRocaL, jugar, lblCronometro);
 
     }//GEN-LAST:event_avanzarMouseClicked
 
     private void jLabel2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel2MouseClicked
-      this.setVisible(false);
-      Juegos j = new Juegos();
-      j.setVisible(true);
+        this.setVisible(false);
+        Juegos j = new Juegos();
+        j.setVisible(true);
+        ControladorRana a = new ControladorRana(EstadisticaRana);
+        a.llenarTabla();
     }//GEN-LAST:event_jLabel2MouseClicked
 
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Estanque;

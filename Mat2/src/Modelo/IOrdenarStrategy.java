@@ -1,5 +1,6 @@
 package Modelo;
 
+import Controlador.ControladorRana;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 import javax.swing.JLabel;
@@ -16,8 +17,12 @@ public interface IOrdenarStrategy {
     String dia = Integer.toString(c.get(Calendar.DATE));
     String mes = Integer.toString(c.get(Calendar.MONTH) + 1);
     String annio = Integer.toString(c.get(Calendar.YEAR));
-    String fecha = (dia + "/" + mes + "/" + annio);;
+    String fecha = (dia + "/" + mes + "/" + annio);
     EstadisticaRana EstadisticaRana = new EstadisticaRana("FROGGIE", fecha, SingletonEstudianteActivo.getInstance().getIdEstudiante());
+
+    public static EstadisticaRana getEstadisticaRana() {
+        return EstadisticaRana;
+    }
 
     void ordenar(JLabel roca1, JLabel roca2, JLabel roca3, JLabel roca4,
             JLabel numRoc1, JLabel numRoc2, JLabel numRoc3, JLabel numRoc4,
