@@ -68,8 +68,7 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
                 Thread.sleep(1000);
                 }
                 if ((horas == 00 && minutos == 01 && segundos == 01)) {
-                    hilo.setText("0:0:0");
-                    System.out.println("Erroor");
+                    hilo.setText("0:0:0");                    
                     Roca1.setVisible(false);
                     Roca2.setVisible(false);
                     Roca3.setVisible(false);
@@ -82,8 +81,7 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
                     num2.setVisible(false);
                     num3.setVisible(false);
                     num4.setVisible(false);
-                    jugamos.setVisible(true);
-                    JOptionPane.showMessageDialog(null, "UUUUUUPSSS, SE TE HA ACABADO EL TIEMPO VUELVE A EMPEZAR AMIGUITO.....!!!!!!");
+                    jugamos.setVisible(true);                   
                     break;
 
                 }
@@ -93,11 +91,7 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
                     stop();
 
                 }
-                
-                else{
-                    hilo.setText("0:0:0");
-                    stop();
-                }
+               
 
             }
         

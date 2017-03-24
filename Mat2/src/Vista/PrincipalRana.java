@@ -291,6 +291,8 @@ public class PrincipalRana extends javax.swing.JFrame {
         this.setVisible(false);
         Juegos j = new Juegos();
         j.setVisible(true);
+        ControladorCronometro c = new ControladorCronometro(lblCronometro, Roca1, Roca2, Roca3, Roca4, ro1, ro2, ro3, ro4, num1, num2, num3, num4, jugar); //Intancio la clase         
+        c.terminar();
         ControladorRana a = new ControladorRana(EstadisticaRana);
         a.llenarTabla();
     }//GEN-LAST:event_salirMouseClicked
