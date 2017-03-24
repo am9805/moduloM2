@@ -131,13 +131,13 @@
                       <Table columnCount="10" rowCount="0">
                         <Column editable="false" title="Nombre" type="java.lang.String"/>
                         <Column editable="false" title="Apellido" type="java.lang.String"/>
-                        <Column editable="false" title="Nombre" type="java.lang.String"/>
+                        <Column editable="false" title="Juego" type="java.lang.String"/>
                         <Column editable="false" title="F.Unidades" type="java.lang.String"/>
                         <Column editable="false" title="F.Decenas" type="java.lang.String"/>
                         <Column editable="false" title="F.Centenas" type="java.lang.String"/>
                         <Column editable="false" title="Nivel Alcanzado" type="java.lang.String"/>
                         <Column editable="false" title="Juego" type="java.lang.String"/>
-                        <Column editable="true" title="F.Asendente" type="java.lang.String"/>
+                        <Column editable="false" title="F.Asendente" type="java.lang.String"/>
                         <Column editable="false" title="F.Descendente" type="java.lang.String"/>
                       </Table>
                     </Property>
