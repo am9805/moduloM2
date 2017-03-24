@@ -6,6 +6,7 @@ package Controlador;
  */
 import Modelo.EstadisticaRanaDAO;
 import Modelo.EstadisticaTorreDAO;
+import Modelo.Estudiante;
 import Modelo.EstudianteDAO;
 import Modelo.JuegoxEstudiantePojo;
 import Modelo.TablaRanaPojo;
@@ -14,8 +15,11 @@ import java.util.ArrayList;
 
 /**
  *
- * @author angelica.arroyavem
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyave Mendoza
+ * @author Juan Pablo Romero Laverde
  */
+
 public class ControladorEstadistica {
 
     private EstadisticaTorreDAO esToDAO;
@@ -30,14 +34,14 @@ public class ControladorEstadistica {
      */
     public ArrayList<TablaTorrePojo> mostrarDatosTorre() {
         esToDAO = new EstadisticaTorreDAO();
-        ArrayList<TablaTorrePojo> r = esToDAO.informacionTorre();
-        return r;
+        ArrayList<TablaTorrePojo> datosTorre = esToDAO.informacionTorre();
+        return datosTorre;
     }
     
      public ArrayList<TablaRanaPojo> mostrarDatosRana(){
         esRaDAO = new EstadisticaRanaDAO();
-        ArrayList<TablaRanaPojo> r = esRaDAO.informacionRana();
-        return r;
+        ArrayList<TablaRanaPojo> datosRana = esRaDAO.informacionRana();
+        return datosRana;
     }
 
     /**
@@ -46,10 +50,10 @@ public class ControladorEstadistica {
      *
      * @return
      */
-    public ArrayList<String> mostrarDatosEstudiante() {
+    public ArrayList<Estudiante> mostrarDatosEstudiante() {
         estuDAO = new EstudianteDAO();
-        ArrayList<String> r = estuDAO.informacionEstudiante();
-        return r;
+        ArrayList<Estudiante> datosEstudiante = estuDAO.informacionEstudiante();
+        return datosEstudiante;
     }
 
     /**
@@ -62,9 +66,8 @@ public class ControladorEstadistica {
     public ArrayList<JuegoxEstudiantePojo> mostrarDatosXestudiante(String id_estudiante) {
        
         estuDAO = new EstudianteDAO();
-        ArrayList<JuegoxEstudiantePojo> t = estuDAO.informacionXestudiante(id_estudiante);
-        
-        return t;
+        ArrayList<JuegoxEstudiantePojo> datosXestudiante = estuDAO.informacionXestudiante(id_estudiante);        
+        return datosXestudiante;
     }
     
      

@@ -1,6 +1,13 @@
-
+/**
+ * JuegoxEstudiantePojo: Clase encargada de capturar los datos que llegan de la tabla "estudiante" 
+ * desde la base de datos, en la tabla de la ventana principal.
+ */
 package Modelo;
-
+/**
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyave Mendoza
+ * @author Juan Pablo Romero Laverde
+ */
 public class JuegoxEstudiantePojo {
     
     private String nombre;

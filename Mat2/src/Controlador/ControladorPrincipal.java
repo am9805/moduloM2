@@ -1,3 +1,8 @@
+/**
+ * ControladorPrincipal: Clase encargada de hacer las validaciones del logueo y de agregar los estudiantes/usuarios
+ * a la base de datos.
+ */
+
 package Controlador;
 
 import Modelo.Estudiante;
@@ -13,31 +18,46 @@ import javax.swing.JTextField;
  */
 public class ControladorPrincipal {
 
-    private Estudiante est;
-    private EstudianteDAO edao;
-
+    private Estudiante estudiante;
+    private EstudianteDAO estudianteDAO;
+    
+    /**
+     * guardarE: Guarda en la tabla "estudiante" los datos que se obtienen al registratse en la ventana principal.
+     * @param nombre
+     * @param apellidos
+     * @param grado
+     * @param grupo
+     * @param id_estudiante 
+     */
     public void guardarE(JTextField nombre, JTextField apellidos, JTextField grado, JTextField grupo, JTextField id_estudiante) {
-        est = new Estudiante();
-        edao = new EstudianteDAO();
+        estudiante = new Estudiante();
+        estudianteDAO = new EstudianteDAO();
 
         if (!nombre.getText().isEmpty() && !apellidos.getText().isEmpty() && !grado.getText().isEmpty() && !grupo.getText().isEmpty() && !id_estudiante.getText().isEmpty()) {
-            est.setNombre(nombre.getText());
-            est.setApellidos(apellidos.getText());
-            est.setGrado(grado.getText());
-            est.setGrupo(grupo.getText());
-            est.setIdEstudiante(id_estudiante.getText());
-            edao.agregarEstudiante(est);
+            estudiante.setNombre(nombre.getText());
+            estudiante.setApellidos(apellidos.getText());
+            estudiante.setGrado(grado.getText());
+            estudiante.setGrupo(grupo.getText());
+            estudiante.setIdEstudiante(id_estudiante.getText());
+            estudianteDAO.agregarEstudiante(estudiante);
         } else {
             JOptionPane.showMessageDialog(null, "Por favor llene todos los campos");
         }
     }
-
+    
+    /**
+     * validarE: Valida que el estudiante ya se haya registrado, esta consulta la hace con el método
+     * "validarUsuario" quiene es el encargado de buscar el usuario en la base de datos.
+     * @param nombre
+     * @param id_estudiante
+     * @return 
+     */
     public boolean validarE(String nombre, String id_estudiante) {
-        boolean a;
-        edao = new EstudianteDAO();
-        a = edao.validarUsuario(nombre, id_estudiante);
+        boolean valido;
+        estudianteDAO = new EstudianteDAO();
+        valido = estudianteDAO.validarUsuario(nombre, id_estudiante);
 
-        return a;
+        return valido;
     }
 
 }

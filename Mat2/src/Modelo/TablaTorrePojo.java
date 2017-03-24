@@ -1,6 +1,13 @@
-
+/**
+ * TablaTorrePojo: Clase encargada de encampsular los datos de la tabla Torre.
+ * 
+ */
 package Modelo;
-
+/**
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyave Mendoza
+ * @author Juan Pablo Romero Laverde
+ */
 public class TablaTorrePojo {
      private String nombre;
     private String apellidos;
@@ -10,6 +17,11 @@ public class TablaTorrePojo {
     private int nivelAlcanzado;    
     private String fecha;
 
+    /**
+     * Métodos get y set de los atributos de la clase.
+     * 
+     */
+    
     public String getFecha() {
         return fecha;
     }

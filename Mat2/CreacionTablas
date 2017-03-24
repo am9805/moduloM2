@@ -4,14 +4,10 @@ CREATE TABLE estudiante (nombre VARCHAR(20), apellidos VARCHAR(40), grado VARCHA
 
 CREATE TABLE estadisticaRana (nombreJuego VARCHAR(20), id_estudiante VARCHAR(40), errorAscendente INT, errorDescendente INT, fecha VARCHAR(40));
 
-CREATE TABLE partida (nombreJuego VARCHAR(20), id_estudiante VARCHAR(40));
-
 ALTER TABLE estadisticaTorre ADD FOREIGN KEY(id_estudiante)
 REFERENCES estudiante(id_estudiante) ON DELETE CASCADE;
 
 ALTER TABLE estadisticaRana ADD FOREIGN KEY(id_estudiante)
 REFERENCES estudiante(id_estudiante) ON DELETE CASCADE;
 
-ALTER TABLE practicas ADD FOREIGN KEY(id_estudiante)
-REFERENCES estudiante(id_estudiante) ON DELETE CASCADE;
 

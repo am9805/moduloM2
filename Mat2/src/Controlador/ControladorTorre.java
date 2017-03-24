@@ -1,3 +1,7 @@
+/**
+ * ControladorTorre: Clase encargada de almacenar y validar  las estadisticas de el juego de la torre.
+ */
+
 package Controlador;
 
 import Modelo.EstadisticaTorre;
@@ -10,9 +14,8 @@ import javax.swing.JTextField;
 import static java.util.concurrent.ThreadLocalRandom.current;
 
 /**
- *
  * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
+ * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
  */
 public abstract class ControladorTorre {
@@ -101,7 +104,11 @@ public abstract class ControladorTorre {
         }
         return decision;
     }
-
+    
+    /**
+     * llenarTabla: Método encargado de llenar la tabla "estadisticaTorre" con los datos que contiene el objeto
+     * de tipo "estadisticaTorre".
+     */
     public void llenarTabla() {
         EstadisticaTorreDAO a = new EstadisticaTorreDAO();
         a.AgregarEstadisticaT(EstadisticaTorre);

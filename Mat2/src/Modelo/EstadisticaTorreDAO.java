@@ -1,7 +1,10 @@
-package Modelo;
-
 /**
- * EstadisticaTorreDAO: Esta clase es la encargada de realizar la conexión del programa con la tabla "estadisticaTorre".
+ * EstadisticaTorreDAO: Esta clase es la encargada de realizar la conexión del programa con la tabla 
+ * "estadisticaTorre".
+ */
+
+package Modelo;
+/**
  * @author Santiago Bedoya Betancur
  * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
@@ -12,6 +15,10 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+/**
+ * EstadisticaTorreDAO: Constructor de la clase.
+ * @author angelica.arroyavem
+ */
 public class EstadisticaTorreDAO {
 
     PreparedStatement ps = null;
@@ -74,10 +81,8 @@ public class EstadisticaTorreDAO {
                 torrePojo.setFecha(rs.getString("fecha"));
                 r.add(torrePojo);
             }
-            System.out.println("Correcto");
 
         } catch (Exception e) {
-            System.out.println(" No Correcto");
         }
         return r;
 

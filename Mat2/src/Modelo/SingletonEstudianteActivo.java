@@ -1,11 +1,12 @@
-package Modelo;
-
-/**
- * 
+/** 
  * SingletonEstudianteActivo: Es usada para que en toda la aplicación este guardado el id del estudiante que esta jugando
  * actualmete.
+ */
+package Modelo;
+
+ /**
  * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
+ * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
  */
 public class SingletonEstudianteActivo {

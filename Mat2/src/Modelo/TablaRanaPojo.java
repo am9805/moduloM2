@@ -1,6 +1,13 @@
-
+/**
+ * Clase encargada de encampsular los datos de la tabla rana.
+ * 
+ */
 package Modelo;
-
+/**
+ * @author Santiago Bedoya Betancur
+ * @author Angelica Arroyave Mendoza
+ * @author Juan Pablo Romero Laverde
+ */
 public class TablaRanaPojo {
     private String nombre;
     private String apellidos;
@@ -8,6 +15,10 @@ public class TablaRanaPojo {
     private int errorDescendente;
     private String fecha;
 
+    /**
+     * Métodos get y set de los atributos de la clase.
+     * 
+     */
     public String getFecha() {
         return fecha;
     }

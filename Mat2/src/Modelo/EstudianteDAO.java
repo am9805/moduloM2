@@ -2,7 +2,7 @@ package Modelo;
 
 /**
  * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
+ * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
  */
 import java.sql.Connection;
@@ -103,26 +103,27 @@ public class EstudianteDAO {
      *
      * @return
      */
-    public ArrayList<String> informacionEstudiante() {
-        ArrayList<String> r = new ArrayList<String>();
-        String espa = "                              ";
-        String espa2 = "                                 ";
-        String espa3 = "                                 ";
+    public ArrayList<Estudiante> informacionEstudiante() {
+        ArrayList<Estudiante> arrayEstudiantes = new ArrayList<>();
         String q = "SELECT ALL id_estudiante,nombre,apellidos,grado,grupo FROM estudiante ";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
             while (rs.next()) {
+                Estudiante estudiante = new Estudiante();
+                estudiante.setIdEstudiante(rs.getString("id_estudiante"));
+                estudiante.setNombre(rs.getString("nombre"));
+                estudiante.setApellidos(rs.getString("apellidos"));
+                estudiante.setGrado(rs.getString("grado"));
+                estudiante.setGrupo(rs.getString("grupo"));
 
-                String a = (rs.getObject(1) + espa + rs.getObject(2) + espa + rs.getObject(3) + espa2 + rs.getObject(4) + espa3 + rs.getObject(5)).toString();
-
-                r.add(a);
+                arrayEstudiantes.add(estudiante);
             }
 
         } catch (Exception e) {
         }
-        return r;
+        return arrayEstudiantes;
     }
 
     /**
@@ -160,5 +161,3 @@ public class EstudianteDAO {
         return r;
     }
 }
-
-

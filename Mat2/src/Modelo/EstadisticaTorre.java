@@ -1,13 +1,11 @@
 package Modelo;
 
 /**
- *
- *
- *
  * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
+ * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
  */
+
 public class EstadisticaTorre {
 
     private String nombreJuego;
@@ -17,7 +15,12 @@ public class EstadisticaTorre {
     private int erroresCentenas;
     private int nivelAlcanzado;
     private String fecha;
-
+    
+    /**
+     * EstadisticaTorre: Constructor de la clase.
+     * @param idEstudiante
+     * @param fecha 
+     */
     public EstadisticaTorre(String idEstudiante, String fecha) {
         nombreJuego = "La Torre";
         this.idEstudiante = idEstudiante;
@@ -27,7 +30,10 @@ public class EstadisticaTorre {
         nivelAlcanzado = 0;
         this.fecha = fecha;
     }
-
+    /**
+     * Métodos get y set de los atributos de la clase EstadisticaTorre.
+     */
+    
     public String getNombreJuego() {
         return nombreJuego;
     }

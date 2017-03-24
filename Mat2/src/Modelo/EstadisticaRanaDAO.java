@@ -1,3 +1,7 @@
+/**
+ * EstadisticaRanaDAO: Clase encargada de conectar elementos del ControladorRana con operaciones de la base de datos
+ * en la tabla "estadisticaRana".
+ */
 package Modelo;
 
 import java.sql.Connection;
@@ -8,7 +12,7 @@ import java.util.ArrayList;
 
 /**
  * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
+ * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
  */
 public class EstadisticaRanaDAO {
@@ -18,7 +22,12 @@ public class EstadisticaRanaDAO {
     Connection conn = null;
     ConexionBD conexion = null;
     static Statement sentencia;
-
+    
+     /**
+      * AgregarEstadisticaR: Método encargado de almacenar valores en la tabla "estadisticaRana".
+      * @param es
+      * @return 
+      */
     public boolean AgregarEstadisticaR(EstadisticaRana es) {
 
         try {
@@ -44,7 +53,8 @@ public class EstadisticaRanaDAO {
         return true;
     }
     /**
-     * Este método retorna un arreglo de tipo tablaRanaPojo, que recupera toda la información de la tabla "estadisticaRana".
+     * informacionRana: Este método retorna un arreglo de tipo tablaRanaPojo, que recupera toda la información
+     * de la tabla "estadisticaRana".
      * @return 
      */
     public ArrayList<TablaRanaPojo> informacionRana() {
@@ -64,10 +74,8 @@ public class EstadisticaRanaDAO {
 
                 r.add(ranaPojo);
             }
-            System.out.println("Correcto");
 
         } catch (Exception e) {
-            System.out.println(" No Correcto");
         }
         return r;
 

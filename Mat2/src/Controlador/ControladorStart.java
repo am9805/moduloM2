@@ -1,11 +1,13 @@
+/**
+ * ControladorStart: Clase encargada de inicializar la aplicación.
+ */
 package Controlador;
 
 import Vista.Principal;
 
 /**
- *
  * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
+ * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
  */
 public class ControladorStart {

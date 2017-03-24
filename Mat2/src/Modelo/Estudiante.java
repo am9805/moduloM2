@@ -1,9 +1,13 @@
+/**
+ * Estudiante: Clase encargada de almacenar datos del estudiante.
+ */
+
 package Modelo;
 
 /**
  *
  * @author Santiago Bedoya Betancur
- * @author Angelica Arroyame Mendoza
+ * @author Angelica Arroyave Mendoza
  * @author Juan Pablo Romero Laverde
  */
 public class Estudiante {
@@ -13,7 +17,15 @@ public class Estudiante {
     private String grado;
     private String grupo;
     private String idEstudiante;
-
+    
+     /**
+      * Estudiante: Constructor de la clase.
+      * @param nombre
+      * @param apellidos
+      * @param grado
+      * @param grupo
+      * @param idEstudiante 
+      */
     public Estudiante(String nombre, String apellidos, String grado, String grupo, String idEstudiante) {
         this.nombre = nombre;
         this.apellidos = apellidos;
@@ -21,10 +33,17 @@ public class Estudiante {
         this.grupo = grupo;
         this.idEstudiante = idEstudiante;
     }
-
+    /**
+     * Estudiante: Constructor de la clase.
+     */
     public Estudiante() {
     }
-
+    
+    /**
+     * Métodos get y set de los atributos de la clase "Estudiante".
+     */
+    
+    
     public String getApellidos() {
         return apellidos;
     }

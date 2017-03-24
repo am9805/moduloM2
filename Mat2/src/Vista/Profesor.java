@@ -5,11 +5,11 @@
 package Vista;
 
 import Controlador.ControladorEstadistica;
+import Modelo.Estudiante;
 import Modelo.JuegoxEstudiantePojo;
 import Modelo.TablaRanaPojo;
 import Modelo.TablaTorrePojo;
 import java.util.ArrayList;
-import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 public class Profesor extends javax.swing.JFrame {
@@ -22,6 +22,10 @@ public class Profesor extends javax.swing.JFrame {
         panelRana.setVisible(false);
         panelTorre.setVisible(false);
         ctrlE = new ControladorEstadistica();
+        panelResultadoEstudiante.setVisible(false);
+        consultar.setVisible(false);
+        idBus.setVisible(false);
+
     }
 
     @SuppressWarnings("unchecked")
@@ -36,10 +40,15 @@ public class Profesor extends javax.swing.JFrame {
         idBus = new javax.swing.JTextField();
         consultar = new javax.swing.JButton();
         jLabel5 = new javax.swing.JLabel();
-        scroll1 = new javax.swing.JScrollPane();
-        tabla1 = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
+        panelEstudiantes = new javax.swing.JPanel();
+        scroll2 = new javax.swing.JScrollPane();
+        tablaEstudiantes = new javax.swing.JTable();
+        panelResultadoEstudiante = new javax.swing.JPanel();
+        scroll1 = new javax.swing.JScrollPane();
+        tablaREstudiante = new javax.swing.JTable();
+        mostrarEstudiantes = new javax.swing.JButton();
         porJuego = new javax.swing.JPanel();
         panelTorre = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
@@ -69,12 +78,6 @@ public class Profesor extends javax.swing.JFrame {
         getContentPane().add(salir, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 440, 120, -1));
 
         porEstudiante.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        idBus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                idBusActionPerformed(evt);
-            }
-        });
         porEstudiante.add(idBus, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 10, 220, 30));
 
         consultar.setText("Consultar");
@@ -83,12 +86,54 @@ public class Profesor extends javax.swing.JFrame {
                 consultarActionPerformed(evt);
             }
         });
-        porEstudiante.add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 10, 130, -1));
+        porEstudiante.add(consultar, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 40, 130, -1));
 
         jLabel5.setText("Escriba la identificacion del estudiante:");
-        porEstudiante.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 260, 30));
+        porEstudiante.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 320, 30));
 
-        tabla1.setModel(new javax.swing.table.DefaultTableModel(
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 2, 12)); // NOI18N
+        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel1.setText("F.Unidades = Fallos en unidades . / F.Decenas= Fallo Descenas. / F.Centenas= Fallo Centenas ");
+        porEstudiante.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 40, 560, 20));
+
+        jLabel3.setFont(new java.awt.Font("Noto Sans", 2, 12)); // NOI18N
+        jLabel3.setText("F.Ascendente = Fallo Ascendente.  / F.Des = Fallo Descendente.");
+        porEstudiante.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 60, -1, -1));
+
+        panelEstudiantes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablaEstudiantes.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Identifiación", "Nombre", "Apellido", "Grado", "Grupo"
+            }
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.String.class, java.lang.Object.class
+            };
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        scroll2.setViewportView(tablaEstudiantes);
+
+        panelEstudiantes.add(scroll2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 790, 220));
+
+        porEstudiante.add(panelEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 790, 200));
+
+        panelResultadoEstudiante.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        tablaREstudiante.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
 
             },
@@ -111,16 +156,28 @@ public class Profesor extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
-        scroll1.setViewportView(tabla1);
+        scroll1.setViewportView(tablaREstudiante);
+        if (tablaREstudiante.getColumnModel().getColumnCount() > 0) {
+            tablaREstudiante.getColumnModel().getColumn(4).setResizable(false);
+            tablaREstudiante.getColumnModel().getColumn(4).setHeaderValue("F.Decenas");
+            tablaREstudiante.getColumnModel().getColumn(5).setHeaderValue("F.Centenas");
+            tablaREstudiante.getColumnModel().getColumn(6).setHeaderValue("Nivel Alcanzado");
+            tablaREstudiante.getColumnModel().getColumn(7).setHeaderValue("Juego");
+            tablaREstudiante.getColumnModel().getColumn(8).setHeaderValue("F.Asendente");
+            tablaREstudiante.getColumnModel().getColumn(9).setHeaderValue("F.Descendente");
+        }
 
-        porEstudiante.add(scroll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 790, 300));
+        panelResultadoEstudiante.add(scroll1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 790, 230));
 
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("F.Unidades = Fallos en unidades . / F.Decenas= Fallo Descenas. / F.Centenas= Fallo Centenas ");
-        porEstudiante.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 560, 20));
+        porEstudiante.add(panelResultadoEstudiante, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 790, 200));
 
-        jLabel3.setText("F.Ascendente = Fallo Ascendente.  / F.Des = Fallo Descendente.");
-        porEstudiante.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 60, -1, -1));
+        mostrarEstudiantes.setText("Mostrar Estudiantes");
+        mostrarEstudiantes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarEstudiantesActionPerformed(evt);
+            }
+        });
+        porEstudiante.add(mostrarEstudiantes, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 10, 180, -1));
 
         jTabbedPane1.addTab("Por estudiante", porEstudiante);
 
@@ -153,7 +210,7 @@ public class Profesor extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tablaTorre);
 
-        panelTorre.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 670, -1));
+        panelTorre.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, -1));
 
         porJuego.add(panelTorre, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, 240));
 
@@ -216,8 +273,8 @@ public class Profesor extends javax.swing.JFrame {
 
         getContentPane().add(jTabbedPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, 800, 340));
 
-        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/FondoVenPrincipal.jpg"))); // NOI18N
-        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 10, 730, 470));
+        fondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Recursos/FondoProfe.jpg"))); // NOI18N
+        getContentPane().add(fondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 820, 490));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -273,22 +330,14 @@ public class Profesor extends javax.swing.JFrame {
         }
 
     }//GEN-LAST:event_consultar2ActionPerformed
-    private void Clear_Table1(JTable tabla) {
-        tabla.setModel(new DefaultTableModel());
-        for (int i = 0; i < tabla.getRowCount(); i++) {
-
-            i -= 1;
-        }
-    }
-    private void idBusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_idBusActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_idBusActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
-
+        clearTable();
+        panelResultadoEstudiante.setVisible(true);
+        panelEstudiantes.setVisible(false);
         String id_estudiante = idBus.getText();
         ArrayList<JuegoxEstudiantePojo> array = ctrlE.mostrarDatosXestudiante(id_estudiante);
-        DefaultTableModel model = (DefaultTableModel) tabla1.getModel();
+        DefaultTableModel model = (DefaultTableModel) tablaREstudiante.getModel();
         int i = 0;
         while (i < array.size()) {
             JuegoxEstudiantePojo e = array.get(i);
@@ -296,12 +345,48 @@ public class Profesor extends javax.swing.JFrame {
             i++;
         }
     }//GEN-LAST:event_consultarActionPerformed
+        /**
+         * llenarTablaEstudiantes: Llena la tablaEstudiantes.
+         */
+    public void llenarTablaEstudiantes() {
+        if (tablaEstudiantes.getSize().height == 0) {
+            ArrayList<Estudiante> array = ctrlE.mostrarDatosEstudiante();
+            DefaultTableModel model = (DefaultTableModel) tablaEstudiantes.getModel();
+            int i = 0;
+            while (i < array.size()) {
+                Estudiante e = array.get(i);
+                model.addRow(new Object[]{e.getIdEstudiante(), e.getNombre(), e.getApellidos(), e.getGrado(), e.getGrupo()});
+                i++;
+            }
+        } else {
+            panelEstudiantes.setVisible(true);
+            panelResultadoEstudiante.setVisible(false);
+        }
+    }
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
         dispose();
     }//GEN-LAST:event_salirActionPerformed
 
-
+    private void mostrarEstudiantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarEstudiantesActionPerformed
+        llenarTablaEstudiantes();
+        consultar.setVisible(true);
+        panelEstudiantes.setVisible(true);
+        idBus.setVisible(true);
+        
+    }//GEN-LAST:event_mostrarEstudiantesActionPerformed
+    
+    /**
+     * clearTable: Elimina los datos de una tabla.
+     */
+    public void clearTable() {
+        DefaultTableModel dm = (DefaultTableModel) tablaREstudiante.getModel();
+        int rowCount = dm.getRowCount();
+//Remove rows one by one from the end of the table
+        for (int i = rowCount - 1; i >=0; i--) {
+            dm.removeRow(i);
+        }
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton consultar;
     private javax.swing.JButton consultar2;
@@ -314,14 +399,19 @@ public class Profesor extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTabbedPane jTabbedPane1;
+    private javax.swing.JButton mostrarEstudiantes;
+    private javax.swing.JPanel panelEstudiantes;
     private javax.swing.JPanel panelRana;
+    private javax.swing.JPanel panelResultadoEstudiante;
     private javax.swing.JPanel panelTorre;
     private javax.swing.JPanel porEstudiante;
     private javax.swing.JPanel porJuego;
     private javax.swing.JRadioButton ranaRB;
     private javax.swing.JButton salir;
     private javax.swing.JScrollPane scroll1;
-    private javax.swing.JTable tabla1;
+    private javax.swing.JScrollPane scroll2;
+    private javax.swing.JTable tablaEstudiantes;
+    private javax.swing.JTable tablaREstudiante;
     private javax.swing.JTable tablaRana;
     private javax.swing.JTable tablaTorre;
     private javax.swing.ButtonGroup tipoBusqueda;
