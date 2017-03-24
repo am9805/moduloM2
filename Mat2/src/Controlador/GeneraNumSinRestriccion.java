@@ -15,7 +15,11 @@ public class GeneraNumSinRestriccion implements IGenerarNumeroStrategy {
 
     @Override
 
-    //METODO QUE GENERA NUMEROS SIN RESTRICION  DE 1 A 99 Y 100 A  999
+    /**
+     * GenerarNumero: recibe los objetos que debe generar y el tipo de orden en
+     * el que se debe generar los numeros, es metodo generar numeros sin
+     * restriccion de dos y tres cifras
+     */
     public void GenerarNumero(JLabel numNube1, JLabel numNube2, JLabel numNube3, JLabel numNube4, JLabel orden) {
         int n = ThreadLocalRandom.current().nextInt(1, 2 + 1);
         int limiteInferior;

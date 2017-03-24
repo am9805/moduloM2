@@ -17,7 +17,14 @@ public class OrdenAscecendente implements IOrdenarStrategy {
 
     @Override
 
-    //METODO QUE ORDENA ASCENDENTEMENTE LOS NUMEROS GENERADOS
+    /**
+     * ordenar en orden ascendente es una de las estrategias de ordenamiento 
+     * que se utilizaran para el funcionamiento del juego
+     * el metodo ordena los numeros de menor a mayor
+     * tiene las restricciones de errores y las condiciones de avances 
+     * ademas genera mensajes para validar un error o el avance y lleva los errores a la estadistica
+
+     */
     public void ordenar(JLabel roca1, JLabel roca2, JLabel roca3, JLabel roca4,
             JLabel numRoc1, JLabel numRoc2, JLabel numRoc3, JLabel numRoc4,
             JLabel nube1, JLabel nube2, JLabel nube3, JLabel nube4,

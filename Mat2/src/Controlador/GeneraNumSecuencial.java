@@ -13,7 +13,12 @@ import javax.swing.JLabel;
 public class GeneraNumSecuencial implements IGenerarNumeroStrategy {
 
     @Override
-    //METODO QUE GENERA NUMEROS SECUENCIALMENTE DE 1 EN 1
+
+    /**
+     * GenerarNumero: recibe los objetos que debe generar y el tipo de orden en
+     * el que se debe generar los numeros, este metodo generar numeros de uno en
+     * uno, de dos cifras
+     */
     public void GenerarNumero(JLabel numNube1, JLabel numNube2, JLabel numNube3, JLabel numNube4, JLabel orden) {
         int i = 0, cantidad = 4;
         int arreglo[] = new int[cantidad];

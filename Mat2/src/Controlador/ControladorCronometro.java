@@ -93,6 +93,11 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
                     stop();
 
                 }
+                
+                else{
+                    hilo.setText("0:0:0");
+                    stop();
+                }
 
             }
         
@@ -103,6 +108,7 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
     }
     
     public void terminar(  ){
-        this.stop();
+         hilo.setText("0:0:0");
+         stop();
     }
 }

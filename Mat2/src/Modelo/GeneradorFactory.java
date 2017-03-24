@@ -14,15 +14,27 @@ import javax.swing.JLabel;
  */
 public class GeneradorFactory {
 
-    //UTILIZAMOS SINGLETON
     private static GeneradorFactory GenFactory;
 
+    /**
+     *
+     * @return Este metodo es un singleton que permite instanciar la clase solo
+     * una ves e impedir el uso excesivo de memoria
+     */
     public static GeneradorFactory getInstance() {
         GenFactory = new GeneradorFactory();
         return (GenFactory);
     }
 
-    //METODO QUE GENERA LOS NUMEORS DE  ACUERDO A LA ESTRATEGIA 
+    /**
+     *
+     * @param numNube1
+     * @param numNube2
+     * @param numNube3
+     * @param numNube4
+     * @param orden GenerarNumero: genera los numero de acuerdo a la estrategia
+     * de ordenamientos aleatoriamente
+     */
     public void GenerarNumero(JLabel numNube1, JLabel numNube2, JLabel numNube3, JLabel numNube4, JLabel orden) {
         int x = (ThreadLocalRandom.current().nextInt(1, 3 + 1));
 

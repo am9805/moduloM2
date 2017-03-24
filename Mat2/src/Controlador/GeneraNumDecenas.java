@@ -14,7 +14,10 @@ public class GeneraNumDecenas implements IGenerarNumeroStrategy {
 
     @Override
 
-    //METODO QUE GENERA NUMEROS ALEATORIOS DE 10 EN  10
+    
+    /**
+     * GenerarNumero: recibe los objetos que debe generar y el tipo de orden en el que se debe generar los numeros, este metodo generar numeros de diez en diez de dos cifras
+     */
     public void GenerarNumero(JLabel a, JLabel b, JLabel c, JLabel d, JLabel e) {
 
         int i = 0, cantidad = 4;
