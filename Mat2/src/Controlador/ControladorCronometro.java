@@ -35,7 +35,7 @@ public class ControladorCronometro extends Thread { //una clase que hereda de la
         this.num3 = num3;
         this.num4 = num4;
         this.jugamos = jugamos;
-        this.crono = crono;
+        
 
     }
 

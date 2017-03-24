@@ -34,7 +34,6 @@ public class Juegos extends javax.swing.JFrame {
         jButton2.setAutoscrolls(true);
         jButton2.setBorderPainted(false);
         jButton2.setFocusPainted(false);
-        jButton2.setOpaque(true);
         jButton2.setRolloverEnabled(false);
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -51,7 +50,6 @@ public class Juegos extends javax.swing.JFrame {
         jButton3.setBorderPainted(false);
         jButton3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         jButton3.setFocusPainted(false);
-        jButton3.setOpaque(true);
         jButton3.setRolloverEnabled(false);
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {

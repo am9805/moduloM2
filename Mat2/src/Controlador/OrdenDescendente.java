@@ -88,9 +88,7 @@ public class OrdenDescendente implements IOrdenarStrategy {
         if (!"".equals(roc4)) {
             int numroc4 = Integer.parseInt(roc4);
             if (arreglo[0] == numroc4) {
-                
-                ControladorRana a = new ControladorRana(EstadisticaRana);
-                a.llenarTabla();
+               
                 JOptionPane.showMessageDialog(null, "FELICITACIONES HAS GANADO......!!!!");
                 RanaxRocaL.setVisible(false);
                 Gif.setVisible(true);

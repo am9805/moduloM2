@@ -90,8 +90,7 @@ public class OrdenAscecendente implements IOrdenarStrategy {
 
             int numroc4 = Integer.parseInt(roc4);
             if (arreglo[3] == numroc4) {
-                ControladorRana a = new ControladorRana(EstadisticaRana);
-                a.llenarTabla();
+                
                 JOptionPane.showMessageDialog(null, "FELICITACIONES HAS GANADO......!!!!");
                 Gif.setVisible(true);
                 numRoc1.setVisible(false);
