@@ -58,7 +58,7 @@ public class EstadisticaTorreDAO {
      */
     public ArrayList<TablaTorrePojo> informacionTorre() {
         ArrayList<TablaTorrePojo> r = new ArrayList<>();
-        String q = "SELECT  T.nombre, T.apellidos, O.erroresUnidades, O.erroresDecenas, O.erroresCentenas, O.nivelAlcanzado FROM estudiante T, estadisticaTorre O WHERE T.id_estudiante = O.id_estudiante";
+        String q = "SELECT  T.nombre, T.apellidos, O.erroresUnidades, O.erroresDecenas, O.erroresCentenas, O.nivelAlcanzado, O.fecha FROM estudiante T, estadisticaTorre O WHERE T.id_estudiante = O.id_estudiante";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
@@ -71,6 +71,7 @@ public class EstadisticaTorreDAO {
                 torrePojo.setErroresDecenas(rs.getInt("erroresDecenas"));
                 torrePojo.setErroresCentenas(rs.getInt("erroresCentenas"));
                 torrePojo.setNivelAlcanzado(rs.getInt("nivelAlcanzado"));
+                torrePojo.setFecha(rs.getString("fecha"));
                 r.add(torrePojo);
             }
             System.out.println("Correcto");

@@ -6,7 +6,18 @@ public class TablaRanaPojo {
     private String apellidos;
     private int errorAscendente;
     private int errorDescendente;
+    private String fecha;
 
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
+    
+    
+    
     public String getNombre() {
         return nombre;
     }

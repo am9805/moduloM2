@@ -49,7 +49,7 @@ public class EstadisticaRanaDAO {
      */
     public ArrayList<TablaRanaPojo> informacionRana() {
         ArrayList<TablaRanaPojo> r = new ArrayList<>();
-        String q = "SELECT  T.nombre, T.apellidos, O.nombreJuego, O.errorAscendente, O.errorDescendente FROM estudiante T, estadisticaRana O WHERE T.id_estudiante = O.id_estudiante";
+        String q = "SELECT  T.nombre, T.apellidos, O.nombreJuego, O.errorAscendente, O.errorDescendente, O.fecha FROM estudiante T, estadisticaRana O WHERE T.id_estudiante = O.id_estudiante";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
@@ -60,6 +60,7 @@ public class EstadisticaRanaDAO {
                 ranaPojo.setApellidos(rs.getString("apellidos"));
                 ranaPojo.setErrorAscendente(rs.getInt("errorAscendente"));
                 ranaPojo.setErrorDescendente(rs.getInt("errorDescendente"));
+                ranaPojo.setFecha(rs.getString("fecha"));
 
                 r.add(ranaPojo);
             }

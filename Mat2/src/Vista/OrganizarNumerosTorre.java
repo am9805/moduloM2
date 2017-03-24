@@ -113,7 +113,7 @@ public class OrganizarNumerosTorre extends javax.swing.JFrame {
         Centenas.setText("Centenas.");
         getContentPane().add(Centenas, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 130, -1, -1));
 
-        btnReiniciar.setText("Reiniciar");
+        btnReiniciar.setText("Restaurar");
         btnReiniciar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnReiniciarActionPerformed(evt);
