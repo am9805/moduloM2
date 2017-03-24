@@ -16,8 +16,8 @@ import javax.swing.JTextField;
  */
 public class VistaTorre extends javax.swing.JFrame {
 
-    private ControladorTorre ControladorTorre;
-    private ModeloTorre Torre;
+    private ControladorTorre controladorTorre;
+    private ModeloTorre torre;
     private int cantidadCifras;
     private int aux = 0;
 
@@ -30,19 +30,19 @@ public class VistaTorre extends javax.swing.JFrame {
     }
 
     public ControladorTorre getControladorTorre() {
-        return ControladorTorre;
+        return controladorTorre;
     }
 
     public void setControladorTorre(ControladorTorre ControladorTorre) {
-        this.ControladorTorre = ControladorTorre;
+        this.controladorTorre = ControladorTorre;
     }
 
     public ModeloTorre getTorre() {
-        return Torre;
+        return torre;
     }
 
     public void setTorre(ModeloTorre Torre) {
-        this.Torre = Torre;
+        this.torre = Torre;
     }
 
     public VistaTorre(int cantidadDeCifras) {
@@ -54,13 +54,13 @@ public class VistaTorre extends javax.swing.JFrame {
         cantidadCifras = cantidadDeCifras;
         nivel11.setVisible(false);
         if (cantidadDeCifras == 2) {
-            ControladorTorre = new ControladorTorreDosCifras();
+            controladorTorre = new ControladorTorreDosCifras();
             txtFCentenas.setVisible(false);
             Centenas.setVisible(false);
         } else {
-            ControladorTorre = new ControladorTorreTresCifras();
+            controladorTorre = new ControladorTorreTresCifras();
         }
-        Torre = ControladorTorre.getTorre();
+        torre = controladorTorre.getTorre();
         nuevoNumero();
     }
 
@@ -253,19 +253,19 @@ public class VistaTorre extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnVerificarNumeroActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerificarNumeroActionPerformed
-        String numeroAct = Integer.toString(Torre.getNumeroActual());
-        boolean numeroValido = ControladorTorre.validarNumero(txtFUnidades, txtFDecenas, txtFCentenas, numeroAct, true);
-        int nivel = Torre.getNivel();
+        String numeroAct = Integer.toString(torre.getNumeroActual());
+        boolean numeroValido = controladorTorre.validarNumero(txtFUnidades, txtFDecenas, txtFCentenas, numeroAct, true);
+        int nivel = torre.getNivel();
         if (numeroValido) {
 
             if (nivel < 9) {
                 JOptionPane.showMessageDialog(null, "Muy Bien. ¡Continúa!");
                 nuevoNumero(nivel);
             } else {
-                Torre.setNivel(nivel + 1);
+                torre.setNivel(nivel + 1);
                 nivel10.setVisible(true);
                 nivel11.setVisible(true);
-                mostrarNumero(Torre.getNumeroActual(), 9);
+                mostrarNumero(torre.getNumeroActual(), 9);
                 txtNumero.setText("FELICIDADES");
                 btnVerificarNumero.setEnabled(false);
                 bloquearTxtF(txtFUnidades, txtFDecenas, txtFCentenas);
@@ -287,15 +287,16 @@ public class VistaTorre extends javax.swing.JFrame {
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
 
-        if (Torre.getNivel() != 10) {
+        if (torre.getNivel() != 10) {
             JOptionPane.showMessageDialog(null, "Aún no has terminado, la proxima vez lo lograras.");
         } else {
-            
+            JOptionPane.showMessageDialog(null, "¡Felicidades! Lo conseguiste.");
         }
-
-        ControladorTorre cntrlTorre = ControladorTorre;
+        ControladorTorre cntrlTorre = controladorTorre;
+        Juegos juegos = new Juegos();
         cntrlTorre.llenarTabla();
         this.dispose();
+        juegos.setVisible(true);
     }//GEN-LAST:event_btnSalirActionPerformed
     public JLabel label(int i) {
         return nivelesTorre()[i];
@@ -306,14 +307,14 @@ public class VistaTorre extends javax.swing.JFrame {
     }
 
     private void nuevoNumero() {
-        ControladorTorre.siguienteNumeroAleatorio();
-        txtNumero.setText(Torre.getNumeroString());
+        controladorTorre.siguienteNumeroAleatorio();
+        txtNumero.setText(torre.getNumeroString());
     }
 
     private void nuevoNumero(int nivel) {
         label(nivel).setVisible(true);
-        Torre.setNivel(nivel + 1);
-        mostrarNumero(Torre.getNumeroActual(), nivel);
+        torre.setNivel(nivel + 1);
+        mostrarNumero(torre.getNumeroActual(), nivel);
         nuevoNumero();
     }
 
