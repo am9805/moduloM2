@@ -53,24 +53,25 @@ public class EstadisticaTorreDAO {
         return true;
     }
     /**
-     * informacionTorre: Retorna un arreglo de strings que contiene en cada campo los datos que estan el la tabla "estadisticaTorre".
+     * informacionTorre: Retorna un arreglo de TablaTorrePojo que contiene en cada campo los datos que estan el la tabla "estadisticaTorre".
      * @return 
      */
-    public ArrayList<String> informacionTorre() {
-        ArrayList<String> r = new ArrayList<String>();
-        String espa= "                              ";
-        String espa2="                                        ";
-        String espa3="                                               ";
+    public ArrayList<TablaTorrePojo> informacionTorre() {
+        ArrayList<TablaTorrePojo> r = new ArrayList<>();
         String q = "SELECT  T.nombre, T.apellidos, O.erroresUnidades, O.erroresDecenas, O.erroresCentenas, O.nivelAlcanzado FROM estudiante T, estadisticaTorre O WHERE T.id_estudiante = O.id_estudiante";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
             while (rs.next()) {
-                
-                String a = (rs.getObject(1) +espa+rs.getObject(2)+espa+ rs.getObject(3) +espa2+rs.getObject(4)+espa3+ rs.getObject(5)+espa+rs.getObject(6)).toString();
-                
-                r.add(a);
+                TablaTorrePojo torrePojo= new TablaTorrePojo();
+                torrePojo.setNombre(rs.getString("nombre"));
+                torrePojo.setApellidos(rs.getString("apellidos"));
+                torrePojo.setErroresUnidades(rs.getInt("erroresUnidades"));
+                torrePojo.setErroresDecenas(rs.getInt("erroresDecenas"));
+                torrePojo.setErroresCentenas(rs.getInt("erroresCentenas"));
+                torrePojo.setNivelAlcanzado(rs.getInt("nivelAlcanzado"));
+                r.add(torrePojo);
             }
             System.out.println("Correcto");
 

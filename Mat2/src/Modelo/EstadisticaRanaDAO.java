@@ -43,22 +43,25 @@ public class EstadisticaRanaDAO {
         }
         return true;
     }
-
-    public ArrayList<String> informacionRana() {
-        ArrayList<String> r = new ArrayList<String>();
-        String espa = "                              ";
-        String espa2 = "                                 ";
-        String espa3 = "                            ";
+    /**
+     * Este método retorna un arreglo de tipo tablaRanaPojo, que recupera toda la información de la tabla "estadisticaRana".
+     * @return 
+     */
+    public ArrayList<TablaRanaPojo> informacionRana() {
+        ArrayList<TablaRanaPojo> r = new ArrayList<>();
         String q = "SELECT  T.nombre, T.apellidos, O.nombreJuego, O.errorAscendente, O.errorDescendente FROM estudiante T, estadisticaRana O WHERE T.id_estudiante = O.id_estudiante";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
             while (rs.next()) {
+                TablaRanaPojo ranaPojo = new TablaRanaPojo();
+                ranaPojo.setNombre(rs.getString("nombre"));
+                ranaPojo.setApellidos(rs.getString("apellidos"));
+                ranaPojo.setErrorAscendente(rs.getInt("errorAscendente"));
+                ranaPojo.setErrorDescendente(rs.getInt("errorDescendente"));
 
-                String a = (rs.getObject(1) + espa + rs.getObject(2) + espa + rs.getObject(3) + espa2 + rs.getObject(4) + espa3 + rs.getObject(5)).toString();
-
-                r.add(a);
+                r.add(ranaPojo);
             }
             System.out.println("Correcto");
 

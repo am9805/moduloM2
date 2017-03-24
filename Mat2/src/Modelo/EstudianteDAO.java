@@ -71,9 +71,9 @@ public class EstudianteDAO {
             rs = ps.executeQuery();
             while (rs.next()) {
             }
-            
+
         } catch (Exception e) {
-            
+
         }
         r = asignar();
         return r;
@@ -124,51 +124,41 @@ public class EstudianteDAO {
         }
         return r;
     }
-    
-    /**
-     * informacionXestudiante: Recupera de la tabla "estudiante", el estudiante con el id ingresado por parámetro
-     * junto con sus respectivos datos de la tabla "estadisticaTorre" y "estadisticaRana".
-     * @return 
-     */
-    public ArrayList<String> informacionXestudianteT(String id_estudiante) {
-       ArrayList<String> r = new ArrayList<String>();
-        String espa= "     ";
-        String q = "SELECT  E.nombre, E.apellidos, T.nombreJuego, T.erroresUnidades, T.erroresDecenas, T.erroresCentenas, T.nivelAlcanzado FROM estudiante E INNER JOIN estadisticaTorre T ON E.id_estudiante = T.id_estudiante WHERE E.id_estudiante = '"+id_estudiante+"'";
-        try {
-            conn = conexion.getConexion();
-            ps = conn.prepareStatement("SELECT  E.nombre, T.nombreJuego FROM estudiante E INNER JOIN estadisticaTorre T ON E.id_estudiante = T.id_estudiante WHERE E.id_estudiante = '"+id_estudiante+"'");
-            rs = ps.executeQuery();
-            
-            while (rs.next()) { 
-                  String b = (rs.getString("nombre")+rs.getString("nombreJuego"));
-                String a = (rs.getString("nombre") +espa+rs.getString("apellidos")+espa+ rs.getString("nombreJuego") +espa+rs.getString("erroresUnidades")+espa+ rs.getString("erroresDecenas")+espa+rs.getString("erroresCentenas")+espa+ rs.getString("erroresCentenas") +espa+rs.getString("nivelAlcanzado"));
-                System.out.println(b);
-                r.add(a);
-            }
 
-        } catch (Exception e) {
-        }
-        return r;
-    }
-    public ArrayList<String> informacionXestudianteR(String id_estudiante) {
-       ArrayList<String> r = new ArrayList<String>();
-        String espa= "     ";
-        String q = "SELECT R.nombreJuego, R.errorAscendente, R.errorDescendente  FROM estudiante E INNER JOIN estadisticaRana R ON E.id_estudiante = R.id_estudiante WHERE E.id_estudiante = '"+id_estudiante+"'";
+    /**
+     * informacionXestudiante: Recupera de la tabla "estudiante", el estudiante
+     * con el id ingresado por parámetro junto con sus respectivos datos de la
+     * tabla "estadisticaTorre" y "estadisticaRana".
+     *
+     * @return
+     */
+    public ArrayList<JuegoxEstudiantePojo> informacionXestudiante(String id_estudiante) {
+        ArrayList<JuegoxEstudiantePojo> r = new ArrayList<>();
+        String q = "SELECT  E.nombre, E.apellidos, T.nombreJuego torre, T.erroresUnidades, T.erroresDecenas, T.erroresCentenas, T.nivelAlcanzado, R.nombreJuego rana, R.errorAscendente, R.errorDescendente FROM estudiante E INNER JOIN estadisticaTorre T ON E.id_estudiante = T.id_estudiante INNER JOIN estadisticaRana R ON E.id_estudiante = R.id_estudiante WHERE E.id_estudiante =" + "'" + id_estudiante + "'";
         try {
             conn = conexion.getConexion();
             ps = conn.prepareStatement(q);
             rs = ps.executeQuery();
+
             while (rs.next()) {
-                
-                String a = (rs.getString("nombreJuego") +espa+rs.getString("errorAscendente")+espa+ rs.getString("errorDescendente"));
-                System.out.println(a);
-                r.add(a);
+                JuegoxEstudiantePojo estPojo = new JuegoxEstudiantePojo();
+                estPojo.setNombre(rs.getString("nombre"));
+                estPojo.setApellidos(rs.getString("apellidos"));
+                estPojo.setErroresCentenas(rs.getString("erroresCentenas"));
+                estPojo.setErroresDecenas(rs.getString("erroresDecenas"));
+                estPojo.setErroresUnidades(rs.getString("erroresUnidades"));
+                estPojo.setNivelAlcanzado(rs.getString("nivelAlcanzado"));
+                estPojo.setNombreJuego(rs.getString("torre"));
+                estPojo.setNombreJuegoR(rs.getString("rana"));
+                estPojo.setErrorAscendente(rs.getString("errorAscendente"));
+                estPojo.setErrorDescendente(rs.getString("errorDescendente"));
+                r.add(estPojo);
             }
 
         } catch (Exception e) {
-            e.printStackTrace();
         }
         return r;
     }
-
 }
+
+
