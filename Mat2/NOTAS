@@ -1,0 +1,34 @@
+Integrantes del equipo:
+
+Juan Pablo Romero Laverde.
+Santiago Bedoya Betancur.
+Angélica Arroyave Mendoza.
+
+
+Somos el sub grupo que presentará la parte correspondiente asignada desde principios de la realización de la práctica, sin el acoplamiento con el otro sub grupo de matemáticas02. El aplicativo está completamente funcional con los juegos que nos correspondian previamente.
+
+1. Para ingresar como profesor, escribir en usuario: "profesor" ; y en contraseña: "123".
+
+2. Para consultar los estudiantes nuevamente, en la ventana del profesor, (una vez haya hecho una consulta con un estudiante), se debe dar click al boton "Mostrar estudiante" una vez más.
+
+3. Es necesario tener una conexión con un servidor de MySQL; si el computador no la tiene, instalar el servidor desde el siguiente enlace: 
+https://dev.mysql.com/downloads/file/?id=467605 (Intstalar todo lo que el instalador pide. Esté muy pendiende al instalar, no todo es dar click en "next/siguiente".
+
+4. Para la base de datos: crear una base de datos con el nombre "mat", de ahi, ejecute los siguientes comandos:
+
+CREATE TABLE estadisticaTorre (nombreJuego VARCHAR(20), id_estudiante VARCHAR(40), erroresUnidades INT, erroresDecenas INT, erroresCentenas INT, nivelAlcanzado INT, fecha VARCHAR(40));
+
+CREATE TABLE estudiante (nombre VARCHAR(20), apellidos VARCHAR(40), grado VARCHAR(5), grupo VARCHAR(5), id_estudiante VARCHAR(40), PRIMARY KEY (id_estudiante));
+
+CREATE TABLE estadisticaRana (nombreJuego VARCHAR(20), id_estudiante VARCHAR(40), errorAscendente INT, errorDescendente INT, fecha VARCHAR(40));
+
+ALTER TABLE estadisticaTorre ADD FOREIGN KEY(id_estudiante)
+REFERENCES estudiante(id_estudiante) ON DELETE CASCADE;
+
+ALTER TABLE estadisticaRana ADD FOREIGN KEY(id_estudiante)
+REFERENCES estudiante(id_estudiante) ON DELETE CASCADE;
+
+
+
+Gracias por su atención.
+
