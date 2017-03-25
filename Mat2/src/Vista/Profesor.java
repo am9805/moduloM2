@@ -10,6 +10,7 @@ import Modelo.JuegoxEstudiantePojo;
 import Modelo.TablaRanaPojo;
 import Modelo.TablaTorrePojo;
 import java.util.ArrayList;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 public class Profesor extends javax.swing.JFrame {
@@ -289,46 +290,50 @@ public class Profesor extends javax.swing.JFrame {
     }//GEN-LAST:event_torreRBActionPerformed
 
     private void consultar2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultar2ActionPerformed
-        if (tablaRana.getSize().height == 0) {
-            if (ranaRB.isSelected()) {
-                panelRana.getSize();
-                panelTorre.setVisible(false);
-                panelRana.setVisible(true);
-                ArrayList<TablaRanaPojo> array = ctrlE.mostrarDatosRana();
-                DefaultTableModel model = (DefaultTableModel) tablaRana.getModel();
-                int i = 0;
-                while (i < array.size()) {
-                    TablaRanaPojo e = array.get(i);
-                    model.addRow(new Object[]{e.getNombre(), e.getApellidos(), e.getErrorAscendente(), e.getErrorDescendente(), e.getFecha()});
-                    i++;
+        if (!ranaRB.isSelected() && !torreRB.isSelected()) {
+            JOptionPane.showMessageDialog(null, "Seleccione una de las dos opciones");
+        } else {
+
+            if (tablaRana.getSize().height == 0) {
+                if (ranaRB.isSelected()) {
+                    panelRana.getSize();
+                    panelTorre.setVisible(false);
+                    panelRana.setVisible(true);
+                    ArrayList<TablaRanaPojo> array = ctrlE.mostrarDatosRana();
+                    DefaultTableModel model = (DefaultTableModel) tablaRana.getModel();
+                    int i = 0;
+                    while (i < array.size()) {
+                        TablaRanaPojo e = array.get(i);
+                        model.addRow(new Object[]{e.getNombre(), e.getApellidos(), e.getErrorAscendente(), e.getErrorDescendente(), e.getFecha()});
+                        i++;
+                    }
                 }
             }
-        }
-        if (ranaRB.isSelected()) {
-            panelTorre.setVisible(false);
-            panelRana.setVisible(true);
+            if (ranaRB.isSelected()) {
+                panelTorre.setVisible(false);
+                panelRana.setVisible(true);
 
-        }
-        if (tablaTorre.getSize().height == 0) {
+            }
+            if (tablaTorre.getSize().height == 0) {
+                if (torreRB.isSelected()) {
+                    panelTorre.setVisible(true);
+                    panelRana.setVisible(false);
+                    ArrayList<TablaTorrePojo> array = ctrlE.mostrarDatosTorre();
+                    DefaultTableModel model = (DefaultTableModel) tablaTorre.getModel();
+                    int i = 0;
+                    while (i < array.size()) {
+                        TablaTorrePojo e = array.get(i);
+                        model.addRow(new Object[]{e.getNombre(), e.getApellidos(), e.getErroresUnidades(), e.getErroresDecenas(), e.getErroresCentenas(), e.getNivelAlcanzado(), e.getFecha()});
+                        i++;
+                    }
+                }
+            }
             if (torreRB.isSelected()) {
                 panelTorre.setVisible(true);
                 panelRana.setVisible(false);
-                ArrayList<TablaTorrePojo> array = ctrlE.mostrarDatosTorre();
-                DefaultTableModel model = (DefaultTableModel) tablaTorre.getModel();
-                int i = 0;
-                while (i < array.size()) {
-                    TablaTorrePojo e = array.get(i);
-                    model.addRow(new Object[]{e.getNombre(), e.getApellidos(), e.getErroresUnidades(), e.getErroresDecenas(), e.getErroresCentenas(), e.getNivelAlcanzado(), e.getFecha()});
-                    i++;
-                }
+
             }
         }
-        if (torreRB.isSelected()) {
-            panelTorre.setVisible(true);
-            panelRana.setVisible(false);
-
-        }
-
     }//GEN-LAST:event_consultar2ActionPerformed
 
     private void consultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_consultarActionPerformed
@@ -345,9 +350,9 @@ public class Profesor extends javax.swing.JFrame {
             i++;
         }
     }//GEN-LAST:event_consultarActionPerformed
-        /**
-         * llenarTablaEstudiantes: Llena la tablaEstudiantes.
-         */
+    /**
+     * llenarTablaEstudiantes: Llena la tablaEstudiantes.
+     */
     public void llenarTablaEstudiantes() {
         if (tablaEstudiantes.getSize().height == 0) {
             ArrayList<Estudiante> array = ctrlE.mostrarDatosEstudiante();
@@ -373,9 +378,9 @@ public class Profesor extends javax.swing.JFrame {
         consultar.setVisible(true);
         panelEstudiantes.setVisible(true);
         idBus.setVisible(true);
-        
+
     }//GEN-LAST:event_mostrarEstudiantesActionPerformed
-    
+
     /**
      * clearTable: Elimina los datos de una tabla.
      */
@@ -383,7 +388,7 @@ public class Profesor extends javax.swing.JFrame {
         DefaultTableModel dm = (DefaultTableModel) tablaREstudiante.getModel();
         int rowCount = dm.getRowCount();
 //Remove rows one by one from the end of the table
-        for (int i = rowCount - 1; i >=0; i--) {
+        for (int i = rowCount - 1; i >= 0; i--) {
             dm.removeRow(i);
         }
     }

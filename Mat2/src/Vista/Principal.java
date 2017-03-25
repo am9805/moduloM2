@@ -268,6 +268,12 @@ public class Principal extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel6.setText("Usuario:");
 
+        usuarioP.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                usuarioPActionPerformed(evt);
+            }
+        });
+
         jLabel7.setFont(new java.awt.Font("DejaVu Sans", 1, 12)); // NOI18N
         jLabel7.setText("Contraseña:");
 
@@ -351,7 +357,7 @@ public class Principal extends javax.swing.JFrame {
     }//GEN-LAST:event_estudianteActionPerformed
 
     private void sigPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_sigPActionPerformed
-        if (usuarioP.getText().equals("profesora") && passP.getText().equals("123")) {
+        if (usuarioP.getText().equals("profesor") && passP.getText().equals("123")) {
             Profesor profeVentana = new Profesor();
             profeVentana.setVisible(true);
             dispose();
@@ -382,6 +388,10 @@ public class Principal extends javax.swing.JFrame {
         panelProfesor.setVisible(false);
         panelOpcion.setVisible(false);
     }//GEN-LAST:event_inicioActionPerformed
+
+    private void usuarioPActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usuarioPActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_usuarioPActionPerformed
 
     public void esconder() {
         panelRegistro.setVisible(false);
